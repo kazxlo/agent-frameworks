@@ -34,5 +34,6 @@ jobs:
             echo "No changes to data.json"
           else
             git commit -m "Update data.json [skip ci]"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
