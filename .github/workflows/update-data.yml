@@ -1,38 +1,30 @@
-name: Update Framework Data
-
+name: 更新框架数据
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  update-data:
+  update:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # 强制使用 Node.js24，消除警告
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
+      - uses: actions/checkout@v4
+      - name: 安装 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      - name: Fetch data and generate data.json
+          node-version: 22  # 使用稳定新版，告别过期警告
+      - name: 安装依赖
+        run: npm install node-fetch
+      - name: 抓取数据
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: node scripts/fetch-data.js
-
-      - name: Commit and push if changed
+      - name: 提交数据
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.json
-          if git diff --staged --quiet; then
-            echo "No changes to data.json"
-          else
-            git commit -m "Update data.json [skip ci]"
-            git push
-          fi
+          git commit -m "🩹 自动更新数据 $(date)"
+          git push
