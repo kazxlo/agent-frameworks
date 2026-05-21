@@ -296,31 +296,46 @@
       attachDetailEvents();
     }
     
+function renderList() {
+  // 辅助函数：格式化 ISO 日期字符串
+  function formatDate(isoString) {
+    if (!isoString) return '--';
+    const date = new Date(isoString);
+    if (isNaN(date.getTime())) return '--';
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
-      
-    function renderList() {
-        // 辅助函数：格式化 ISO 日期字符串
-      function formatDate(isoString) {
-        if (!isoString) return '--';
-        const date = new Date(isoString);
-        // 检查是否有效日期
-        if (isNaN(date.getTime())) return '--';
-        // 示例格式：2026-05-19 或 2026年05月19日
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;   // 简洁格式
-        // 或者中文: return `${year}年${month}月${day}日`;
-      let html='<table class="list-table"><thead><tr><th>框架</th><th>维护方</th><th>发布时间</th><th>当前版本</th><th>最新发布时间</th><th>Stars</th><th>语言</th><th>操作</th></tr></thead><tbody>';
-      frameworkData.forEach(fw=>{
-        const version = fw.latestVersion || '--';
-        const releaseDate = fw.latestReleaseDate ? fw.latestReleaseDate : '--';
-        html+=`<tr><td><strong>${fw.name}</strong></td><td>${fw.org}</td><td>${fw.firstRelease}</td><td>${version}</td><td>${releaseDate}</td><td>⭐ ${formatNumber(fw.stars)}</td><td>${fw.languages.join(',')}</td><td><button class="detail-btn" data-id="${fw.id}">详情</button></td></tr>`;
-      });
-      html+='</tbody></table>';
-      contentArea.innerHTML=html;
-      attachDetailEvents();
-    }
+  // 按 Stars 降序排序
+  const sorted = [...frameworkData].sort((a, b) => (b.stars || 0) - (a.stars || 0));
+
+  let html = `<table class="list-table"><thead>
+    <tr><th>框架</th><th>维护方</th><th>发布时间</th>
+    <th>当前版本</th><th>最新发布时间</th>
+    <th>Stars</th><th>语言</th><th>操作</th>
+  </tr></thead><tbody>`;
+
+  sorted.forEach(fw => {
+    const version = fw.latestVersion || '--';
+    const releaseDate = formatDate(fw.latestReleaseDate);
+    html += `<tr>
+      <td><strong>${fw.name}</strong></td>
+      <td>${fw.org}</td>
+      <td>${fw.firstRelease}</td>
+      <td>${version}</td>
+      <td>${releaseDate}</td>
+      <td>⭐ ${formatNumber(fw.stars)}</td>
+      <td>${fw.languages.join(',')}</td>
+      <td><button class="detail-btn" data-id="${fw.id}">详情</button></td>
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+  contentArea.innerHTML = html;
+  attachDetailEvents();
+}
 
     function renderMatrix() {
       const groups=[{name:'🧠 智能体架构',dims:['single_agent','multi_agent','hitl','streaming','tool_calling']},{name:'🌐 模型与生态',dims:['model_agnostic','mcp','a2a','visual_tools']},{name:'⚙️ 工程化成熟度',dims:['state_management','memory','persistence']}];
