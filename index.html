@@ -295,11 +295,15 @@
       contentArea.innerHTML=html;
       attachDetailEvents();
     }
+    
 
+      
     function renderList() {
-      let html='<table class="list-table"><thead><tr><th>框架</th><th>维护方</th><th>首次发布时间</th><th>Stars</th><th>语言</th><th>操作</th></tr></thead><tbody>';
+      let html='<table class="list-table"><thead><tr><th>框架</th><th>维护方</th><th>发布时间</th><th>当前版本</th><th>最新发布时间</th><th>Stars</th><th>语言</th><th>操作</th></tr></thead><tbody>';
       frameworkData.forEach(fw=>{
-        html+=`<tr><td><strong>${fw.name}</strong></td><td>${fw.org}</td><td>${fw.firstRelease}</td><td>⭐ ${formatNumber(fw.stars)}</td><td>${fw.languages.join(',')}</td><td><button class="detail-btn" data-id="${fw.id}">详情</button></td></tr>`;
+        const version = fw.latestVersion || '--';
+        const releaseDate = fw.latestReleaseDate ? fw.latestReleaseDate : '--';
+        html+=`<tr><td><strong>${fw.name}</strong></td><td>${fw.org}</td><td>${fw.firstRelease}</td><td>${version}</td><td>${releaseDate}</td><td>⭐ ${formatNumber(fw.stars)}</td><td>${fw.languages.join(',')}</td><td><button class="detail-btn" data-id="${fw.id}">详情</button></td></tr>`;
       });
       html+='</tbody></table>';
       contentArea.innerHTML=html;
