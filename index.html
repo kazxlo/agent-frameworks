@@ -311,8 +311,7 @@
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;   // 简洁格式
         // 或者中文: return `${year}年${month}月${day}日`;
-        const sorted = [...frameworkData].sort((a, b) => (b.stars || 0) - (a.stars || 0));
-        let html='<table class="list-table"><thead><tr><th>框架</th><th>维护方</th><th>发布时间</th><th>当前版本</th><th>最新发布时间</th><th>Stars</th><th>语言</th><th>操作</th></tr></thead><tbody>';
+      let html='<table class="list-table"><thead><tr><th>框架</th><th>维护方</th><th>发布时间</th><th>当前版本</th><th>最新发布时间</th><th>Stars</th><th>语言</th><th>操作</th></tr></thead><tbody>';
       frameworkData.forEach(fw=>{
         const version = fw.latestVersion || '--';
         const releaseDate = fw.latestReleaseDate ? fw.latestReleaseDate : '--';
@@ -397,7 +396,7 @@
       const plotHeight = height - topPad - bottomPad;
       if (plotWidth <= 0 || plotHeight <= 0) return;
 
-      sorted.forEach(fw => {
+      frameworkData.forEach(fw => {
         const coords = freedomCoordinates[fw.id];
         if (!coords) return;
         let [xPercent, yPercent] = coords;
@@ -496,7 +495,7 @@
 
     loadAllData();
     setInterval(loadAllData, 60*60*1000);
-  }();
+  })();
 </script>
 </body>
 </html>
