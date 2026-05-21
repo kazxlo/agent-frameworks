@@ -326,8 +326,13 @@ async function main() {
     });
   }
 
+  const output = {
+    lastUpdated: new Date().toISOString(),
+    frameworks: results
+  };
+
   const outputPath = path.join(__dirname, '..', 'data.json');
-  fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
   console.log(`数据已写入 ${outputPath}，共 ${results.length} 个框架`);
 }
 
