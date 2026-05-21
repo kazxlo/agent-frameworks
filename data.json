@@ -1,1 +1,561 @@
-[]
+[
+  {
+    "id": "claude-agent-sdk",
+    "name": "Claude Agent SDK",
+    "org": "Anthropic",
+    "category": "vendor",
+    "githubRepo": "anthropics/claude-code",
+    "npmPackage": null,
+    "firstRelease": "2025年3月",
+    "languages": [
+      "Python",
+      "TypeScript"
+    ],
+    "license": "商业许可",
+    "shortDesc": "Anthropic官方Agent SDK，将Claude Code能力封装为可编程接口，支持MCP协议。",
+    "longDesc": "Claude Agent SDK 是 Anthropic 推出的官方智能体开发工具包，从 Claude Code 衍生而来。提供两种接入模式：简化高级 API 与低级别 Agent Loop 原语。原生支持 MCP 协议，拥有 Hook 系统 (PreToolUse, PostToolUse)，仅限 Claude 模型。",
+    "features": [
+      "Claude专用",
+      "MCP原生",
+      "Hook系统",
+      "文件/Shell操作",
+      "TypeScript+Python"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": "partial",
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": false,
+      "mcp": true,
+      "a2a": false,
+      "state_management": true,
+      "memory": "partial",
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 125314,
+    "latestVersion": "v2.1.146",
+    "latestReleaseDate": "2026-05-21T01:51:52Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "vercel-ai-sdk",
+    "name": "Vercel AI SDK",
+    "org": "Vercel",
+    "category": "vendor",
+    "githubRepo": "vercel/ai",
+    "npmPackage": "ai",
+    "firstRelease": "2023年6月",
+    "languages": [
+      "TypeScript"
+    ],
+    "license": "Apache-2.0",
+    "shortDesc": "TypeScript生态首选AI工具包，统一100+模型接口，深度集成React/Next.js。",
+    "longDesc": "Vercel AI SDK 是 TypeScript 领域最主流的 AI 框架，周下载量超 1200 万。提供 useChat、useCompletion 等 React Hook，支持流式 UI 和 Agent 抽象 (v6)。完全开源，Apache-2.0 协议。",
+    "features": [
+      "100+模型提供商",
+      "React/Next.js集成",
+      "流式UI",
+      "Agent抽象(v6)",
+      "MCP支持"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": true,
+      "a2a": false,
+      "state_management": true,
+      "memory": "partial",
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 24362,
+    "latestVersion": "@ai-sdk/vue@3.0.188",
+    "latestReleaseDate": "2026-05-21T00:29:00Z",
+    "npmDownloads": 54546652
+  },
+  {
+    "id": "google-adk",
+    "name": "Google ADK",
+    "org": "Google",
+    "category": "vendor",
+    "githubRepo": "google/adk-python",
+    "npmPackage": null,
+    "firstRelease": "2025年4月",
+    "languages": [
+      "Python",
+      "Java",
+      "Go"
+    ],
+    "license": "Apache-2.0",
+    "shortDesc": "Google开源Agent工具包，覆盖设计到部署全生命周期，深度优化Gemini。",
+    "longDesc": "Google Agent Development Kit (ADK) 是代码优先的开源工具包，支持多智能体系统的设计、编排、调试、评估和部署。Python/Java/Go 多语言支持，层级 Agent 编排，内置评估工具。",
+    "features": [
+      "层级Agent编排",
+      "内置评估工具",
+      "Google Cloud集成",
+      "A2A协议"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": true,
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": 19760,
+    "latestVersion": "v2.0.0",
+    "latestReleaseDate": "2026-05-19T16:24:40Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "aws-strands-agents",
+    "name": "AWS Strands Agents",
+    "org": "Amazon",
+    "category": "vendor",
+    "githubRepo": "aws/strands-agents",
+    "npmPackage": null,
+    "firstRelease": "2025年5月",
+    "languages": [
+      "Python",
+      "TypeScript"
+    ],
+    "license": "Apache-2.0",
+    "shortDesc": "AWS开源模型驱动Agent SDK，几行代码构建多智能体，支持A2A与Bedrock。",
+    "longDesc": "Strands Agents 是 AWS 推出的模型驱动 Agent SDK，2025年7月发布1.0。支持多 Agent 模式、A2A 协议，与 Amazon Bedrock AgentCore 深度集成。",
+    "features": [
+      "模型驱动",
+      "多Agent模式",
+      "A2A协议",
+      "Bedrock集成"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": true,
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": null,
+    "latestVersion": null,
+    "latestReleaseDate": null,
+    "npmDownloads": null
+  },
+  {
+    "id": "openai-agents-sdk",
+    "name": "OpenAI Agents SDK",
+    "org": "OpenAI",
+    "category": "vendor",
+    "githubRepo": "openai/openai-agents-python",
+    "npmPackage": null,
+    "firstRelease": "2025年3月",
+    "languages": [
+      "Python"
+    ],
+    "license": "Apache-2.0",
+    "shortDesc": "OpenAI官方Agent SDK，提供轻量级、可组合的智能体构建原语。",
+    "longDesc": "OpenAI Agents SDK 是 OpenAI 推出的官方 Python 库，用于构建和管理 AI 智能体。支持工具使用、多智能体协调、内置跟踪与评估，与 OpenAI 模型深度集成。",
+    "features": [
+      "OpenAI模型优化",
+      "多Agent协调",
+      "内置跟踪",
+      "Python优先"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": false,
+      "mcp": false,
+      "a2a": false,
+      "state_management": true,
+      "memory": "partial",
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 26519,
+    "latestVersion": "v0.17.3",
+    "latestReleaseDate": "2026-05-19T01:27:36Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "microsoft-agent-framework",
+    "name": "Microsoft Agent Framework",
+    "org": "Microsoft",
+    "category": "vendor",
+    "githubRepo": "microsoft/agent-framework",
+    "npmPackage": null,
+    "firstRelease": "2025年5月",
+    "languages": [
+      "Python",
+      "C#"
+    ],
+    "license": "MIT",
+    "shortDesc": "微软推出的企业级多Agent编排框架，支持ACN与语义内核。",
+    "longDesc": "Microsoft Agent Framework 是微软开源的智能体框架，深度集成 Azure 生态与 Semantic Kernel。提供多Agent编排、企业级安全、可观测性，适用于复杂业务自动化。",
+    "features": [
+      "Azure集成",
+      "多Agent编排",
+      "Semantic Kernel",
+      "企业级安全"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": true,
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": 10613,
+    "latestVersion": "python-1.5.0",
+    "latestReleaseDate": "2026-05-20T00:23:14Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "smolagents",
+    "name": "smolagents",
+    "org": "Hugging Face",
+    "category": "opensource",
+    "githubRepo": "huggingface/smolagents",
+    "npmPackage": null,
+    "firstRelease": "2025年1月",
+    "languages": [
+      "Python"
+    ],
+    "license": "Apache-2.0",
+    "shortDesc": "HuggingFace推出的极简Agent库，专注代码驱动、沙箱安全执行。",
+    "longDesc": "smolagents 是 Hugging Face 推出的轻量级智能体框架，强调代码动作而非JSON，支持安全沙箱执行。与 Hugging Face Hub 生态无缝集成，模型无关。",
+    "features": [
+      "代码驱动",
+      "安全沙箱",
+      "Hub集成",
+      "模型无关"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": "partial",
+      "hitl": "partial",
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": false,
+      "a2a": false,
+      "state_management": "partial",
+      "memory": "partial",
+      "persistence": false,
+      "visual_tools": false
+    },
+    "stars": 27419,
+    "latestVersion": "v1.25.0",
+    "latestReleaseDate": "2026-05-14T11:38:12Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "llama-index",
+    "name": "LlamaIndex",
+    "org": "LlamaIndex (run-llama)",
+    "category": "opensource",
+    "githubRepo": "run-llama/llama_index",
+    "npmPackage": null,
+    "firstRelease": "2022年11月",
+    "languages": [
+      "Python",
+      "TypeScript"
+    ],
+    "license": "MIT",
+    "shortDesc": "数据驱动的LLM应用框架，提供强大的索引、查询与Agent能力。",
+    "longDesc": "LlamaIndex 是领先的数据框架，用于将LLM连接到外部数据源。提供丰富的数据连接器、索引结构、查询引擎和Agent组件，支持构建复杂RAG和Agent应用。",
+    "features": [
+      "数据连接器",
+      "索引结构",
+      "查询引擎",
+      "Agent组件",
+      "多语言"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": false,
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": 49546,
+    "latestVersion": "v0.14.22",
+    "latestReleaseDate": "2026-05-14T20:22:24Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "org": "LangChain Inc.",
+    "category": "opensource",
+    "githubRepo": "langchain-ai/langchain",
+    "npmPackage": null,
+    "firstRelease": "2022年10月",
+    "languages": [
+      "Python",
+      "TypeScript"
+    ],
+    "license": "MIT",
+    "shortDesc": "AI应用开发框架，提供模型、提示、链、Agent、记忆等核心模块，生态庞大。",
+    "longDesc": "LangChain 是 AI 工程领域的基础框架，提供模型抽象、提示模板、链式调用、工具集成、记忆管理等全方位能力。拥有庞大的社区和工具链，是许多Agent框架的底层依赖。",
+    "features": [
+      "模型抽象",
+      "链式调用",
+      "工具集成",
+      "记忆管理",
+      "庞大生态"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": false,
+      "state_management": true,
+      "memory": true,
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 137248,
+    "latestVersion": "langchain-core==1.4.0",
+    "latestReleaseDate": "2026-05-11T18:42:53Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "langgraph",
+    "name": "LangGraph",
+    "org": "LangChain Inc.",
+    "category": "opensource",
+    "githubRepo": "langchain-ai/langgraph",
+    "npmPackage": null,
+    "firstRelease": "2024年4月",
+    "languages": [
+      "Python",
+      "TypeScript"
+    ],
+    "license": "MIT",
+    "shortDesc": "有向图编排的生产级Agent框架，状态管理+持久化+时间旅行调试。",
+    "longDesc": "LangGraph 是 LangChain 生态中专为复杂有状态工作流设计的框架。采用有向图结构，支持循环边、条件边，三级内存体系，检查点与人在循环。已被 Klarna、Uber 等企业验证。",
+    "features": [
+      "有向图编排",
+      "状态检查点",
+      "时间旅行调试",
+      "人在循环",
+      "MCP原生"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": true,
+      "a2a": "partial",
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": 32564,
+    "latestVersion": "1.2.0",
+    "latestReleaseDate": "2026-05-12T03:46:55Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "pydantic-ai",
+    "name": "Pydantic AI",
+    "org": "Pydantic Team",
+    "category": "opensource",
+    "githubRepo": "pydantic/pydantic-ai",
+    "npmPackage": null,
+    "firstRelease": "2024年12月",
+    "languages": [
+      "Python"
+    ],
+    "license": "MIT",
+    "shortDesc": "类型安全的Agent框架，FastAPI风格开发体验，利用Pydantic验证。",
+    "longDesc": "Pydantic AI 将 Pydantic 的数据验证能力带入 AI Agent 开发，强调生产级可靠性。v1.0 于2025年9月发布，支持多模型提供商。",
+    "features": [
+      "类型安全",
+      "FastAPI风格",
+      "多模型支持",
+      "结构化输出"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": "partial",
+      "hitl": "partial",
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": false,
+      "state_management": "partial",
+      "memory": "partial",
+      "persistence": false,
+      "visual_tools": false
+    },
+    "stars": 17176,
+    "latestVersion": "v1.100.0",
+    "latestReleaseDate": "2026-05-21T03:52:43Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "pi-mono",
+    "name": "pi-mono (Pi)",
+    "org": "OpenClaw / badlogic",
+    "category": "opensource",
+    "githubRepo": "badlogic/pi-mono",
+    "npmPackage": "pi-ai",
+    "firstRelease": "2025年中期",
+    "languages": [
+      "TypeScript"
+    ],
+    "license": "MIT",
+    "shortDesc": "极致极简的AI引擎，默认仅4个工具，系统提示词不到1000 token。",
+    "longDesc": "pi-mono 是 OpenClaw 底层引擎，Monorepo 架构包含7个独立 npm 包。核心产品 Pi 为终端编程智能体，设计哲学“极简无限扩展”，不依赖 LangChain。",
+    "features": [
+      "极简内核(4工具)",
+      "模块化npm包",
+      "20+模型提供商",
+      "终端UI"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": false,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": false,
+      "a2a": false,
+      "state_management": true,
+      "memory": false,
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 52191,
+    "latestVersion": "v0.75.4",
+    "latestReleaseDate": "2026-05-20T15:29:15Z",
+    "npmDownloads": 113
+  },
+  {
+    "id": "crewai",
+    "name": "CrewAI",
+    "org": "CrewAI Inc.",
+    "category": "opensource",
+    "githubRepo": "crewAIInc/crewAI",
+    "npmPackage": null,
+    "firstRelease": "2023年11月",
+    "languages": [
+      "Python"
+    ],
+    "license": "MIT",
+    "shortDesc": "角色化多Agent协作框架，模拟人类团队，Fortune 500采用率超60%。",
+    "longDesc": "CrewAI 通过定义角色、目标、背景故事来驱动多智能体协作。从原型到演示最快2-4小时，2024年完成1800万美元A轮融资。",
+    "features": [
+      "角色化协作",
+      "层次化委派",
+      "任务编排",
+      "企业级平台"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": "partial",
+      "a2a": false,
+      "state_management": true,
+      "memory": true,
+      "persistence": "partial",
+      "visual_tools": true
+    },
+    "stars": 51840,
+    "latestVersion": "1.14.5",
+    "latestReleaseDate": "2026-05-18T19:19:49Z",
+    "npmDownloads": null
+  },
+  {
+    "id": "agno",
+    "name": "Agno",
+    "org": "Agno (前Phidata)",
+    "category": "opensource",
+    "githubRepo": "agno-agi/agno",
+    "npmPackage": null,
+    "firstRelease": "2024年(重塑2025.1)",
+    "languages": [
+      "Python"
+    ],
+    "license": "MPL-2.0",
+    "shortDesc": "轻量高性能多模态Agent框架，内置记忆与知识库，AgentOS监控。",
+    "longDesc": "Agno 前身为 Phidata，2025年重塑为高性能 Agentic AI 运行时。设计原则简单、快速、无关，提供内置 UI 与监控面板。",
+    "features": [
+      "极速实例化",
+      "内置知识库",
+      "AgentOS监控",
+      "多模态支持"
+    ],
+    "capabilities": {
+      "single_agent": true,
+      "multi_agent": true,
+      "hitl": true,
+      "streaming": true,
+      "tool_calling": true,
+      "model_agnostic": true,
+      "mcp": true,
+      "a2a": true,
+      "state_management": true,
+      "memory": true,
+      "persistence": true,
+      "visual_tools": true
+    },
+    "stars": 40261,
+    "latestVersion": "v2.6.8",
+    "latestReleaseDate": "2026-05-19T22:08:54Z",
+    "npmDownloads": null
+  }
+]
