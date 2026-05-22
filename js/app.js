@@ -482,7 +482,7 @@
           <div class="frame-item" data-name="agno"><input type="checkbox" id="agno"> <label for="agno">Agno</label></div>
         </div>
         <div class="chart-box" style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); padding: 20px;">
-          <canvas id="evalRadarChart" style="width:100%; height:auto; min-height: 360px;"></canvas>
+          <canvas id="evalRadarChart" style="width:100%; height:auto; min-height: 260px;"></canvas>
         </div>
       </div>
     </div>
