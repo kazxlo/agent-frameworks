@@ -214,19 +214,6 @@
     contentArea.innerHTML=html;
   }
 
-  function renderRanking() {
-    const sorted=[...frameworkData].sort((a,b)=>(b.stars||0)-(a.stars||0));
-    const maxStars=Math.max(...sorted.map(f=>f.stars||0),1);
-    let html='<div class="ranking-container"><h3 style="margin-bottom:1rem;">⭐ GitHub Stars 排名对比</h3><div class="bar-chart">';
-    sorted.forEach((fw,idx)=>{
-      const stars=fw.stars||0;
-      const percent=(stars/maxStars)*100;
-      html+=`<div class="bar-row"><div class="bar-label">${idx+1}. ${fw.name}</div><div class="bar-track"><div class="bar-fill" style="width:${percent}%"></div></div><div class="bar-value">${formatNumber(stars)}</div><button class="rank-detail-btn" data-id="${fw.id}">详情</button></div>`;
-    });
-    html+='</div></div>';
-    contentArea.innerHTML=html;
-    document.querySelectorAll('.rank-detail-btn').forEach(btn=>btn.addEventListener('click',(e)=>showDetail(e.target.getAttribute('data-id'))));
-  }
 
   function drawFreedomPointsAndLabels(container) {
     const existingDots = container.querySelectorAll('.freedom-dot');
@@ -307,14 +294,187 @@
     });
   }
 
+  function renderArchitecture() {
+  // 获取当前主题颜色（通过 CSS 变量）
+  const isDark = document.body.classList.contains('dark');
+  const getCssVar = (varName) => getComputedStyle(document.body).getPropertyValue(varName).trim();
+  
+  const cyan = getCssVar('--cyan') || (isDark ? '#22d3ee' : '#0891b2');
+  const orange = getCssVar('--orange') || (isDark ? '#f97316' : '#ea580c');
+  const purple = getCssVar('--purple') || (isDark ? '#a855f7' : '#9333ea');
+  const blue = getCssVar('--blue') || (isDark ? '#3b82f6' : '#2563eb');
+  const green = getCssVar('--green') || (isDark ? '#10b981' : '#059669');
+  const pink = getCssVar('--pink') || (isDark ? '#ec4899' : '#db2777');
+  const yellow = getCssVar('--yellow') || (isDark ? '#facc15' : '#eab308');
+  const text = getCssVar('--text') || (isDark ? '#e2e8f0' : '#1a202c');
+  const textSecondary = getCssVar('--text-secondary') || (isDark ? '#94a3b8' : '#4a5568');
+
+  const svgHtml = `
+    <svg viewBox="0 0 1100 850" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-width:1200px; margin:0 auto; display:block;">
+      <defs>
+        <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+          <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(34, 211, 238, 0.05)" stroke-width="1"/>
+        </pattern>
+        <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${cyan}" />
+          <stop offset="100%" stop-color="#06b6d4" />
+        </linearGradient>
+        <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${orange}" />
+          <stop offset="100%" stop-color="#ea580c" />
+        </linearGradient>
+        <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${purple}" />
+          <stop offset="100%" stop-color="#7c3aed" />
+        </linearGradient>
+        <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${blue}" />
+          <stop offset="100%" stop-color="#2563eb" />
+        </linearGradient>
+        <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${green}" />
+          <stop offset="100%" stop-color="#059669" />
+        </linearGradient>
+        <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${pink}" />
+          <stop offset="100%" stop-color="#db2777" />
+        </linearGradient>
+        <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${yellow}" />
+          <stop offset="100%" stop-color="#eab308" />
+        </linearGradient>
+        <marker id="linearArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <path d="M0 0 L7 3.5 L0 7" fill="none" stroke="white" stroke-width="1.5"/>
+        </marker>
+      </defs>
+      <rect width="1100" height="850" fill="url(#grid)" />
+
+      <!-- 业务代码层 -->
+      <g class="arch-clickable" data-layer="business">
+        <rect x="80" y="25" width="940" height="85" rx="12" fill="rgba(34, 211, 238, 0.05)" stroke="url(#cyanGrad)" stroke-width="1.8"/>
+        <text x="550" y="58" text-anchor="middle" fill="${text}" font-size="20" font-weight="bold">业务代码层</text>
+        <text x="550" y="80" text-anchor="middle" fill="${textSecondary}" font-size="12">定义业务流程、智能体意图、任务编排逻辑</text>
+        <text x="550" y="97" text-anchor="middle" fill="${cyan}" font-size="11">上层业务无需感知底层框架细节</text>
+      </g>
+      <path d="M 550 110 L 550 145" stroke="${cyan}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+
+      <!-- 适配抽象层 -->
+      <g class="arch-clickable" data-layer="adapter">
+        <rect x="80" y="155" width="940" height="85" rx="12" fill="rgba(249, 115, 22, 0.05)" stroke="url(#orangeGrad)" stroke-width="1.8"/>
+        <text x="550" y="188" text-anchor="middle" fill="${text}" font-size="20" font-weight="bold">Orchestrator 适配抽象层</text>
+        <text x="550" y="210" text-anchor="middle" fill="${textSecondary}" font-size="12">统一调用接口，屏蔽不同框架差异</text>
+        <text x="550" y="227" text-anchor="middle" fill="${orange}" font-size="11">标准化入参、状态管理、异常回调</text>
+      </g>
+      <path d="M 550 240 L 550 275" stroke="${orange}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+
+      <!-- 核心编排框架 -->
+      <g class="arch-clickable" data-layer="orchestration">
+        <rect x="80" y="285" width="940" height="165" rx="12" fill="rgba(168, 85, 247, 0.05)" stroke="url(#purpleGrad)" stroke-width="1.8"/>
+        <text x="550" y="315" text-anchor="middle" fill="${text}" font-size="20" font-weight="bold">核心编排框架</text>
+      </g>
+
+      <!-- 子框架 LangChain -->
+      <g class="arch-clickable" data-layer="langchain">
+        <rect x="105" y="330" width="270" height="95" rx="8" fill="rgba(59, 130, 246, 0.1)" stroke="url(#blueGrad)" stroke-width="1.5"/>
+        <text x="240" y="365" text-anchor="middle" fill="${text}" font-size="16" font-weight="600">LangChain / LangGraph</text>
+        <text x="240" y="392" text-anchor="middle" fill="${textSecondary}" font-size="12">图编排、状态流转、复杂工作流</text>
+      </g>
+
+      <!-- 子框架 Claude -->
+      <g class="arch-clickable" data-layer="claude">
+        <rect x="415" y="330" width="270" height="95" rx="8" fill="rgba(16, 185, 129, 0.1)" stroke="url(#greenGrad)" stroke-width="1.5"/>
+        <text x="550" y="365" text-anchor="middle" fill="${text}" font-size="16" font-weight="600">Claude Agent SDK</text>
+        <text x="550" y="392" text-anchor="middle" fill="${textSecondary}" font-size="12">原生模型调用、轻量化智能体</text>
+      </g>
+
+      <!-- 子框架 pi-mono -->
+      <g class="arch-clickable" data-layer="pi-mono">
+        <rect x="725" y="330" width="270" height="95" rx="8" fill="rgba(236, 72, 153, 0.1)" stroke="url(#pinkGrad)" stroke-width="1.5"/>
+        <text x="860" y="365" text-anchor="middle" fill="${text}" font-size="16" font-weight="600">pi-mono (Pi)</text>
+        <text x="860" y="392" text-anchor="middle" fill="${textSecondary}" font-size="12">极简高性能、低代码智能体框架</text>
+      </g>
+
+      <!-- 编排框架到能力栈的箭头 -->
+      <path d="M 550 450 L 550 478" stroke="${purple}" stroke-width="1.8" fill="none"/>
+      <path d="M 240 478 L 550 478 L 860 478" stroke="${purple}" stroke-width="1.8" fill="none"/>
+      <path d="M 240 478 L 240 488" stroke="${purple}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+      <path d="M 550 478 L 550 488" stroke="${purple}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+      <path d="M 860 478 L 860 488" stroke="${purple}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+
+      <!-- Skills 能力层 -->
+      <g class="arch-clickable" data-layer="skills">
+        <rect x="80" y="498" width="300" height="110" rx="12" fill="rgba(34, 211, 238, 0.05)" stroke="url(#cyanGrad)" stroke-width="1.8"/>
+        <text x="230" y="538" text-anchor="middle" fill="${text}" font-size="18" font-weight="bold">Skills 能力封装层</text>
+        <text x="230" y="565" text-anchor="middle" fill="${textSecondary}" font-size="12">自定义技能、多步骤任务封装</text>
+      </g>
+
+      <!-- MCP 协议层 -->
+      <g class="arch-clickable" data-layer="mcp">
+        <rect x="400" y="498" width="300" height="110" rx="12" fill="rgba(168, 85, 247, 0.05)" stroke="url(#purpleGrad)" stroke-width="1.8"/>
+        <text x="550" y="538" text-anchor="middle" fill="${text}" font-size="18" font-weight="bold">MCP 协议交互层</text>
+        <text x="550" y="565" text-anchor="middle" fill="${textSecondary}" font-size="12">跨框架统一能力调用协议</text>
+      </g>
+
+      <!-- ToolCalling 工具调用层 -->
+      <g class="arch-clickable" data-layer="toolcalling">
+        <rect x="720" y="498" width="300" height="110" rx="12" fill="rgba(59, 130, 246, 0.05)" stroke="url(#blueGrad)" stroke-width="1.8"/>
+        <text x="870" y="538" text-anchor="middle" fill="${text}" font-size="18" font-weight="bold">ToolCalling 工具调用层</text>
+        <text x="870" y="565" text-anchor="middle" fill="${textSecondary}" font-size="12">外部API、检索、代码执行调度</text>
+      </g>
+
+      <!-- 能力栈到 LLM 的箭头 -->
+      <path d="M 230 608 L 230 648" stroke="${cyan}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+      <path d="M 550 608 L 550 648" stroke="${purple}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+      <path d="M 870 608 L 870 648" stroke="${blue}" stroke-width="1.8" marker-end="url(#linearArrow)"/>
+
+      <!-- LLM 模型服务层 -->
+      <g class="arch-clickable" data-layer="llm">
+        <rect x="80" y="658" width="940" height="85" rx="12" fill="rgba(250, 204, 21, 0.05)" stroke="url(#yellowGrad)" stroke-width="1.8"/>
+        <text x="550" y="692" text-anchor="middle" fill="${text}" font-size="20" font-weight="bold">LLM 模型服务层</text>
+        <text x="550" y="714" text-anchor="middle" fill="${textSecondary}" font-size="12">大语言模型推理、多模型路由、Token 调度</text>
+        <text x="550" y="732" text-anchor="middle" fill="${yellow}" font-size="11">支持 OpenAI、Claude、Gemini、Llama 等主流模型</text>
+      </g>
+    </svg>
+  `;
+
+  contentArea.innerHTML = `<div class="arch-container" style="background: var(--card-bg); border-radius: 1.2rem; padding: 1rem; border: 1px solid var(--border);">${svgHtml}</div>`;
+
+  // 绑定点击事件
+  const archDetailMap = {
+    business: { title: "业务代码层", content: "业务代码层是 AI Agent 应用的入口，负责定义业务流程、设置智能体的目标、编写任务编排逻辑。开发者在这一层描述“要做什么”，而不关心“怎么做”。典型工作包括：定义 Agent 角色（如客服、分析师）、设定工作流步骤（查询数据→分析结果→生成报告）、处理业务异常。这一层与具体框架解耦，方便后续迁移或升级底层技术。" },
+    adapter: { title: "Orchestrator 适配抽象层", content: "适配抽象层作为统一调用接口，屏蔽了不同编排框架（LangChain、Claude SDK、pi-mono 等）的 API 差异。它提供了标准化的入参/出参格式、统一的状态管理机制、跨框架的异常回调处理。该层让上层业务代码可以无缝切换底层框架，例如从 LangGraph 迁移到 Claude SDK 时无需修改业务逻辑，只需更换适配器。" },
+    orchestration: { title: "核心编排框架（整体）", content: "编排框架层是 AI Agent 的核心执行引擎，负责管理智能体的推理、工具调用、记忆存储和状态流转。该层集成了多种开源或商业框架，如 LangGraph（图编排）、Claude Agent SDK（原生高性能）、pi-mono（极简低代码）。开发者可根据场景选择最合适的框架，甚至混合使用。" },
+    langchain: { title: "LangChain / LangGraph", content: "LangChain 是最流行的 AI 应用开发框架，提供链式调用、工具集成、记忆管理等模块。LangGraph 在其基础上增加了有向图编排能力，支持循环边、条件分支和状态检查点，适用于复杂的多步骤工作流（如 ReAct 循环、多轮检索）。两者都拥有庞大的生态（数百种集成）。" },
+    claude: { title: "Claude Agent SDK", content: "Anthropic 官方推出的轻量级智能体框架，基于 Claude 模型原生构建。支持 MCP 协议、钩子系统（Hook）、文件/Shell 操作等。以“自治代理循环”为核心，开发者只需定义工具和提示词，Agent 自动规划并执行任务。适合需要深度依赖 Claude 模型的场景。" },
+    "pi-mono": { title: "pi-mono (Pi)", content: "极致极简的 AI 引擎，默认仅提供 4 个内置工具，系统提示词不到 1000 token。设计哲学是“极简无限扩展”，不依赖 LangChain，通过模块化 npm 包支持 20+ 模型提供商。适用于对性能和资源占用有苛刻要求的嵌入式或终端智能体场景。" },
+    skills: { title: "Skills 能力封装层", content: "Skills 层将原子操作（如发送邮件、查询数据库、调用 API）封装为可复用的“技能”。每个 Skill 包含输入校验、执行逻辑、错误处理和输出格式化。Agent 可以根据用户意图动态组合多个 Skill，实现复杂任务。该层也支持自定义业务技能，例如“生成周报技能”包含数据拉取、分析、排版等子步骤。" },
+    mcp: { title: "MCP 协议交互层", content: "Model Context Protocol (MCP) 是一个开放标准，用于统一 AI 应用与外部工具、数据源之间的通信。MCP 层将工具的能力以标准化接口暴露，使得任何遵循 MCP 协议的 Agent 框架都能直接调用。该层大幅降低了工具接入成本，实现了框架与工具的解耦。" },
+    toolcalling: { title: "ToolCalling 工具调用层", content: "ToolCalling 层负责执行 Agent 请求的具体工具函数。它处理工具的发现、参数解析、执行调度、结果返回。支持同步/异步调用、超时控制、重试策略和熔断机制。典型工具包括：外部 API（天气、地图）、向量检索（RAG）、代码解释器、数据库查询等。" },
+    llm: { title: "LLM 模型服务层", content: "LLM 模型服务层是整个架构的智能底座，提供大语言模型的推理能力、多模型路由、Token 调度、成本监控等基础服务。该层封装了不同模型提供商（OpenAI、Anthropic、Google、Meta 等）的 API 差异，对外提供统一的推理接口，并支持模型热切换、负载均衡和流式输出。" }
+  };
+
+  document.querySelectorAll('.arch-clickable').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const layer = el.getAttribute('data-layer');
+      const info = archDetailMap[layer];
+      if (info) {
+        modalInner.innerHTML = `<div class="framework-name">${info.title}</div><div style="margin-top:1rem;">${info.content}</div>`;
+        modal.classList.add('active');
+      }
+    });
+  });
+}
+
+  
   function renderView() {
     if (!frameworkData.length) { contentArea.innerHTML = '<div class="loading-indicator">暂无数据</div>'; return; }
     if (currentView === 'cards') renderCards();
     else if (currentView === 'list') renderList();
     else if (currentView === 'matrix') renderMatrix();
     else if (currentView === 'scenarios') renderScenarios();
-    else if (currentView === 'ranking') renderRanking();
     else if (currentView === 'llm-freedom') renderLlmFreedom();
+    else if (currentView === 'architecture') renderArchitecture();
   }
 
   function attachDetailEvents() {
@@ -338,6 +498,7 @@
     document.body.classList.toggle('dark');
     darkToggle.textContent=document.body.classList.contains('dark')?'☀️ 浅色模式':'🌙 深色模式';
     if(currentView==='llm-freedom') renderLlmFreedom();
+    if(currentView==='architecture') renderArchitecture();
   });
 
   loadAllData();
