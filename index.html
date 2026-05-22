@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>主流智能体开发框架 · 实时对比</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- 引入 Chart.js 用于雷达图 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="container">
@@ -25,7 +27,8 @@
     <button class="view-btn" data-view="matrix">📊 能力矩阵</button>
     <button class="view-btn" data-view="scenarios">📋 场景速查</button>
     <button class="view-btn" data-view="llm-freedom">🎯 LLM自由度</button>
-    <button class="view-btn" data-view="architecture">🏛️ 分层架构</button>  <!-- 新增 -->
+    <button class="view-btn" data-view="architecture">🏛️ 分层架构</button>
+    <button class="view-btn" data-view="radar">📡 选型雷达图</button>   <!-- 新增 -->
   </div>
 
   <div id="contentArea">
