@@ -466,6 +466,130 @@
   });
 }
 
+  function renderRadar() {
+  // 雷达图的 HTML 结构（基于原 selection_radar.html 的 .main-wrap 内容，但去掉页面标题和主题按钮）
+  const radarHtml = `
+    <div class="radar-container" style="background: var(--card-bg); border-radius: 1.2rem; padding: 1.5rem; border: 1px solid var(--border);">
+      <div class="main-wrap" style="display: grid; grid-template-columns: 280px 1fr; gap: 24px;">
+        <div class="select-panel" style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); padding: 20px;">
+          <div class="panel-title" style="font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border);">选择对比框架</div>
+          <div class="frame-item" data-name="langgraph"><input type="checkbox" checked id="langgraph"> <label for="langgraph">LangChain / LangGraph</label></div>
+          <div class="frame-item" data-name="claude"><input type="checkbox" id="claude"> <label for="claude">Claude Agent SDK</label></div>
+          <div class="frame-item" data-name="pimono"><input type="checkbox" id="pimono"> <label for="pimono">pi-mono (Pi)</label></div>
+          <div class="frame-item" data-name="googleadk"><input type="checkbox" id="googleadk"> <label for="googleadk">Google ADK</label></div>
+          <div class="frame-item" data-name="openaiagent"><input type="checkbox" id="openaiagent"> <label for="openaiagent">OpenAI Agents SDK</label></div>
+          <div class="frame-item" data-name="crewai"><input type="checkbox" id="crewai"> <label for="crewai">CrewAI</label></div>
+          <div class="frame-item" data-name="agno"><input type="checkbox" id="agno"> <label for="agno">Agno</label></div>
+        </div>
+        <div class="chart-box" style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); padding: 20px;">
+          <canvas id="evalRadarChart" style="width:100%; height:auto; min-height: 500px;"></canvas>
+        </div>
+      </div>
+    </div>
+  `;
+  contentArea.innerHTML = radarHtml;
+
+  // 重新绑定复选框事件（因为 DOM 重新生成了）
+  const dimensionInfo = [
+    { label: '流程可靠性', desc: '生产环境容错率极低，框架必须保证流程按预期执行，不乱跑、不无限循环，具备强状态管理与确定性执行路径' },
+    { label: '断点恢复', desc: '支持长时间任务自动存档，任务中断后可从最近节点恢复进度，满足长周期智能体业务刚性需求' },
+    { label: '权限安全', desc: '可精细化管控工具调用权限，留存完整操作审计日志，敏感操作支持人工审批拦截' },
+    { label: '可观测调试', desc: '具备全链路日志追踪、可视化调试能力，可回溯决策上下文，快速排查线上故障' },
+    { label: '多模型兼容', desc: '兼容多家厂商大模型，无强制绑定限制，保障技术选型与商务议价灵活性' },
+    { label: '生态扩展性', desc: '可无缝对接企业数据库、网关、内部业务系统，依托标准化协议降低集成改造成本' },
+    { label: '人机协同', desc: '关键业务节点可暂停流转，支持人工审核、修正内容后继续执行流程' },
+    { label: '社区稳定性', desc: '参考版本迭代频次、问题响应速度、落地案例规模，评估长期维护与填坑成本' }
+  ];
+  const dimensionLabels = dimensionInfo.map(item => item.label);
+
+  const frameScoreData = {
+    langgraph: { name: "LangChain/LangGraph", color: "rgba(124, 58, 237, 0.6)", borderColor: "#7c3aed", scores: [9, 9.5, 8.5, 9, 8, 9, 9, 9] },
+    claude: { name: "Claude Agent SDK", color: "rgba(16, 185, 129, 0.6)", borderColor: "#10b981", scores: [8, 6, 7, 6.5, 6, 7, 5.5, 8.5] },
+    pimono: { name: "pi-mono (Pi)", color: "rgba(236, 72, 153, 0.6)", borderColor: "#ec4899", scores: [7, 5, 6, 5, 8.5, 6.5, 5, 6] },
+    googleadk: { name: "Google ADK", color: "rgba(59, 130, 246, 0.6)", borderColor: "#3b82f6", scores: [9, 8.5, 9, 8.5, 7, 9, 8, 8.5] },
+    openaiagent: { name: "OpenAI Agents SDK", color: "rgba(220, 38, 38, 0.6)", borderColor: "#dc2626", scores: [8.5, 8, 9, 8.5, 5, 8, 9, 9] },
+    crewai: { name: "CrewAI", color: "rgba(249, 115, 22, 0.6)", borderColor: "#f97316", scores: [8.5, 7, 7.5, 7, 7.5, 8, 8.5, 8.5] },
+    agno: { name: "Agno", color: "rgba(23, 101, 211, 0.6)", borderColor: "#1765d3", scores: [8, 7.5, 7, 8, 8.5, 7.5, 7.5, 8] }
+  };
+
+  let radarChart = null;
+  const checkboxes = document.querySelectorAll('.frame-item input[type="checkbox"]');
+
+  function getCurrentThemeColors() {
+    const isDark = document.body.classList.contains('dark');
+    return {
+      textColor: isDark ? '#f1f5f9' : '#1e293b',
+      gridColor: 'rgba(148, 163, 184, 0.2)'
+    };
+  }
+
+  function getCheckedDatasets() {
+    const datasets = [];
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        const data = frameScoreData[cb.id];
+        datasets.push({
+          label: data.name, data: data.scores,
+          backgroundColor: data.color, borderColor: data.borderColor,
+          borderWidth: 2, pointRadius: 4
+        });
+      }
+    });
+    return datasets;
+  }
+
+  function initRadarChart() {
+    const ctx = document.getElementById('evalRadarChart').getContext('2d');
+    const colors = getCurrentThemeColors();
+    radarChart = new Chart(ctx, {
+      type: 'radar',
+      data: { labels: dimensionLabels, datasets: getCheckedDatasets() },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          r: {
+            min: 0, max: 10, ticks: { stepSize: 2, backdropColor: 'transparent' },
+            grid: { color: colors.gridColor },
+            angleLines: { color: colors.gridColor },
+            pointLabels: { color: colors.textColor, font: { size: 12 } }
+          }
+        },
+        plugins: {
+          legend: { position: 'top', labels: { color: colors.textColor, padding: 20 } },
+          tooltip: {
+            callbacks: {
+              title: (ctx) => dimensionInfo[ctx[0].dataIndex].label,
+              label: (ctx) => ['评分：' + ctx.raw, dimensionInfo[ctx.dataIndex].desc]
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function updateRadarChart() {
+    if (!radarChart) return;
+    const colors = getCurrentThemeColors();
+    radarChart.options.scales.r.grid.color = colors.gridColor;
+    radarChart.options.scales.r.angleLines.color = colors.gridColor;
+    radarChart.options.scales.r.pointLabels.color = colors.textColor;
+    radarChart.options.plugins.legend.labels.color = colors.textColor;
+    radarChart.data.datasets = getCheckedDatasets();
+    radarChart.update();
+  }
+
+  // 绑定复选框变化事件
+  checkboxes.forEach(cb => cb.addEventListener('change', updateRadarChart));
+  
+  // 初始化图表
+  initRadarChart();
+
+  // 保存到全局变量，以便在深色模式切换时更新
+  window.__radarChart = { update: updateRadarChart };
+}
+
+  
   
   function renderView() {
     if (!frameworkData.length) { contentArea.innerHTML = '<div class="loading-indicator">暂无数据</div>'; return; }
@@ -475,6 +599,7 @@
     else if (currentView === 'scenarios') renderScenarios();
     else if (currentView === 'llm-freedom') renderLlmFreedom();
     else if (currentView === 'architecture') renderArchitecture();
+    else if (currentView === 'radar') renderRadar();
   }
 
   function attachDetailEvents() {
@@ -499,6 +624,7 @@
     darkToggle.textContent=document.body.classList.contains('dark')?'☀️ 浅色模式':'🌙 深色模式';
     if(currentView==='llm-freedom') renderLlmFreedom();
     if(currentView==='architecture') renderArchitecture();
+    if(currentView==='radar' && window.__radarChart) window.__radarChart.update();
   });
 
   loadAllData();
