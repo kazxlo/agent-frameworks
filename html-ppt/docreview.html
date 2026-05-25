@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="tokyo-night" data-themes="tokyo-night,corporate-clean" data-theme-base="../../../html-ppt/assets/themes/">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DocumentReview 文档质量审查智能体 · Tech Sharing</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/tokyo-night.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+/* 确保对比表样式 */
+.tpl-docreview .compare-table { width:100%; border-collapse:collapse; background:var(--surface); border-radius:var(--radius); overflow:hidden; }
+.tpl-docreview .compare-table th, .tpl-docreview .compare-table td { border:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top; background:var(--bg-soft); color:var(--text-2); font-size:13px; }
+.tpl-docreview .compare-table th { background:var(--surface-2); color:var(--accent); font-family:'JetBrains Mono',monospace; font-weight:700; }
+.tpl-docreview .compare-table td.mono { font-family:'JetBrains Mono',monospace; font-weight:600; color:var(--accent-2); }
+.tpl-docreview .compare-table tr.highlight td { background:color-mix(in srgb, var(--accent) 8%, var(--bg-soft)); border-left:3px solid var(--accent); }
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tpl-docreview">
+<div class="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide is-active" data-title="Cover">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">2026-05-24</span></div>
+    <div class="cover-content">
+      <p class="kicker anim-rise-in" data-anim="rise-in">tech-sharing / 2026-05-24</p>
+      <h1 class="h1 anim-rise-in" data-anim="rise-in" style="--delay:.15s">DocumentReview<br><span class="gradient-text">文档质量审查智能体</span></h1>
+      <p class="lede anim-rise-in" data-anim="rise-in" style="--delay:.3s">基于 <span class="mono">ReWOO</span> + <span class="mono">LangGraph</span> 的智能审查方案</p>
+      <div class="speaker anim-rise-in" data-anim="rise-in" style="--delay:.45s"><div class="av"></div><div><b>Jason</b><span>腾讯 · 数字经办人项目 · 45 min + Q&amp;A</span></div></div>
+      <div class="cover-tags anim-stagger-list mt-m" data-anim-target><span class="pill pill-accent">#ReWOO</span><span class="pill">#LangGraph</span><span class="pill">#AI-Agent</span><span class="pill">#文档审查</span></div>
+    </div>
+    <aside class="notes"><p>大家好，欢迎参加本次技术分享。今天介绍文档质量审查智能体DocumentReview，聚焦于高价值方案文档的自动化质量审查。我们基于ReWOO架构与LangGraph状态图引擎构建低成本高可信审查Agent。</p></aside>
+  </section>
+
+  <!-- 2. Agenda -->
+  <section class="slide" data-title="Agenda">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">议程</span></div>
+    <p class="kicker">agenda</p>
+    <h2 class="h2">今天的路线图</h2>
+    <div class="agenda-list anim-stagger-list mt-l" data-anim-target>
+      <div class="agenda-row"><span class="num">01</span><span class="t">项目背景与核心定位</span><span class="d">~3min</span></div>
+      <div class="agenda-row"><span class="num">02</span><span class="t">核心技术栈</span><span class="d">~2min</span></div>
+      <div class="agenda-row"><span class="num">03</span><span class="t">Agent模式对比：CoT / ReAct / ReWOO</span><span class="d">~4min</span></div>
+      <div class="agenda-row"><span class="num">04</span><span class="t">整体架构与执行流程</span><span class="d">~5min</span></div>
+      <div class="agenda-row"><span class="num">05</span><span class="t">ReWOO 核心：Planner-Worker-Solver</span><span class="d">~10min</span></div>
+      <div class="agenda-row"><span class="num">06</span><span class="t">三轮渐进式审查流程</span><span class="d">~8min</span></div>
+      <div class="agenda-row"><span class="num">07</span><span class="t">工具系统详解</span><span class="d">~6min</span></div>
+      <div class="agenda-row"><span class="num">08</span><span class="t">关键技术亮点</span><span class="d">~6min</span></div>
+      <div class="agenda-row"><span class="num">09</span><span class="t">能力总结与展望</span><span class="d">~5min</span></div>
+    </div>
+    <aside class="notes"><p>新增Agent模式对比环节，帮助理解ReWOO为何更适合长文档审查场景。</p></aside>
+  </section>
+
+  <!-- 3. 背景与定位 -->
+  <section class="slide" data-title="背景与定位">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">背景</span></div>
+    <p class="kicker">// context</p>
+    <h2 class="h2">为什么需要智能文档审查？</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div class="anim-fade-left" data-anim="fade-left"><div class="card card-accent"><h4>痛点</h4><ul class="dim" style="padding-left:18px;line-height:2.2"><li>方案文本<strong>动辄 100+ 页（≈50k tokens）</strong>，人工审查耗时4~6h，遗漏率12%~18%</li><li><strong>五大维度</strong>交叉检查，人脑覆盖困难</li><li>不同行业检查点/术语库差异大，通用规则无法复用</li><li>审查结果<strong>不统一</strong>，不同专家一致性低于70%</li></ul></div></div>
+      <div class="anim-fade-right" data-anim="fade-right" style="--delay:.2s"><div class="card card-accent"><h4>核心定位</h4><ul class="dim" style="padding-left:18px;line-height:2.2"><li>基于 <strong>ReWOO 架构</strong> 的智能审查 Agent：Planner-Worker-Solver 解耦</li><li><strong>三轮渐进式</strong>审查：初审(ReWOO) → 复核(完整性/一致性) → 终审(争议裁决)</li><li>支持 <strong>9 类文档</strong>（可研、标书、申报书等）</li><li><strong>行业可插拔</strong>：检查点/术语库/政策库按行业分目录</li><li>结构化审查报告 + 自动评分评级</li></ul></div></div>
+    </div>
+    <div class="verdict-bar mt-m"><div class="verdict-item"><span class="dot" style="background:var(--good)"></span>格式</div><div class="verdict-item"><span class="dot" style="background:var(--accent)"></span>文字</div><div class="verdict-item"><span class="dot" style="background:var(--accent-2)"></span>结构</div><div class="verdict-item"><span class="dot" style="background:var(--warn)"></span>逻辑</div><div class="verdict-item"><span class="dot" style="background:var(--bad)"></span>合规</div></div>
+    <aside class="notes"><p>长文档审查高认知负载+强领域知识。ReWOO将推理与工具执行分离，LLM调用成本降低约60%。</p></aside>
+  </section>
+
+<section class="slide" data-title="智能体开发框架分层架构">
+  <div class="deck-header">
+    <span class="eyebrow">DocumentReview · 技术分享</span>
+    <span class="eyebrow">架构底层设计</span>
+  </div>
+  <p class="kicker">// agent-framework-architecture</p>
+  <h2 class="h2">智能体开发框架分层架构</h2>
+  <div class="mt-m" style="display: flex; justify-content: center; width: 100%; overflow: visible;">
+    <svg width="920" height="620" viewBox="0 0 920 620" xmlns="http://www.w3.org/2000/svg" style="background: transparent; font-family: 'Inter', 'Segoe UI', sans-serif; display: block; margin: 0 auto;">
+      <defs>
+        <linearGradient id="layer1Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#33467c" />
+          <stop offset="100%" stop-color="#2a3a6e" />
+        </linearGradient>
+        <linearGradient id="layer2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3b4261" />
+          <stop offset="100%" stop-color="#2d334f" />
+        </linearGradient>
+        <linearGradient id="layer5Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3c2f5f" />
+          <stop offset="100%" stop-color="#2a2342" />
+        </linearGradient>
+        <linearGradient id="card3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2c3e50" />
+          <stop offset="100%" stop-color="#1e2c3a" />
+        </linearGradient>
+        <linearGradient id="card4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2a2f45" />
+          <stop offset="100%" stop-color="#1c2033" />
+        </linearGradient>
+        <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" />
+        </filter>
+        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <polygon points="0 0, 8 4, 0 8" fill="#7dcfff" />
+        </marker>
+      </defs>
+
+      <!-- 背景透明 -->
+      <rect width="100%" height="100%" fill="transparent" />
+
+      <!-- ==================== 第1层：业务代码层 ==================== -->
+      <g transform="translate(60, 20)">
+        <rect width="800" height="72" rx="8" fill="url(#layer1Grad)" filter="url(#shadow)" />
+        <rect x="0" y="0" width="8" height="72" fill="#7dcfff" rx="4" />
+        <text x="400" y="28" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="1">业务代码层</text>
+        <text x="400" y="48" fill="#c0caf5" font-size="12" text-anchor="middle">定义业务流程、智能体意图、任务编排逻辑</text>
+        <text x="400" y="64" fill="#565f89" font-size="11" text-anchor="middle">上层业务无需感知底层框架细节</text>
+      </g>
+
+      <path d="M460 92 L460 115" stroke="#565f89" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+      <!-- ==================== 第2层：Orchestrator适配抽象层 ==================== -->
+      <g transform="translate(60, 130)">
+        <rect width="800" height="72" rx="8" fill="url(#layer2Grad)" filter="url(#shadow)" />
+        <rect x="0" y="0" width="8" height="72" fill="#bb9af7" rx="4" />
+        <text x="400" y="28" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="1">Orchestrator适配抽象层</text>
+        <text x="400" y="48" fill="#c0caf5" font-size="12" text-anchor="middle">统一调用接口，屏蔽不同框架差异</text>
+        <text x="400" y="64" fill="#565f89" font-size="11" text-anchor="middle">标准化入参、状态管理、异常回调</text>
+      </g>
+
+      <path d="M460 202 L460 225" stroke="#565f89" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+      <!-- ==================== 第3层：核心编排框架 ==================== -->
+      <g transform="translate(60, 240)">
+        <rect width="800" height="105" rx="8" fill="#1a1b26" stroke="#3b4261" stroke-width="1.5" stroke-dasharray="4" />
+        <text x="15" y="18" fill="#565f89" font-size="10" font-weight="600" text-anchor="start">核心编排框架层</text>
+        
+        <!-- 卡片 1 -->
+        <g transform="translate(15, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card3Grad)" filter="url(#shadow)" stroke="#7dcfff" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#7dcfff" opacity="0.15" />
+          <text x="125" y="16" fill="#7dcfff" font-size="12" font-weight="700" text-anchor="middle">LangChain / LangGraph</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">图编排、状态流转</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">复杂工作流</text>
+        </g>
+        
+        <!-- 卡片 2 -->
+        <g transform="translate(275, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card3Grad)" filter="url(#shadow)" stroke="#bb9af7" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#bb9af7" opacity="0.15" />
+          <text x="125" y="16" fill="#bb9af7" font-size="12" font-weight="700" text-anchor="middle">Claude Agent SDK</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">原生模型调用</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">轻量化智能体</text>
+        </g>
+        
+        <!-- 卡片 3 -->
+        <g transform="translate(535, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card3Grad)" filter="url(#shadow)" stroke="#9ece6a" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#9ece6a" opacity="0.15" />
+          <text x="125" y="16" fill="#9ece6a" font-size="12" font-weight="700" text-anchor="middle">pi-mono (Pi)</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">极简高性能</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">低代码智能体框架</text>
+        </g>
+      </g>
+
+      <path d="M460 345 L460 368" stroke="#565f89" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+      <!-- ==================== 第4层：技能与工具层 ==================== -->
+      <g transform="translate(60, 383)">
+        <rect width="800" height="105" rx="8" fill="#1a1b26" stroke="#3b4261" stroke-width="1.5" stroke-dasharray="4" />
+        <text x="15" y="18" fill="#565f89" font-size="10" font-weight="600" text-anchor="start">能力封装与交互层</text>
+        
+        <g transform="translate(15, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card4Grad)" filter="url(#shadow)" stroke="#ff9e64" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#ff9e64" opacity="0.15" />
+          <text x="125" y="16" fill="#ff9e64" font-size="12" font-weight="700" text-anchor="middle">Skills能力封装层</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">自定义技能</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">多步骤任务封装</text>
+        </g>
+        
+        <g transform="translate(275, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card4Grad)" filter="url(#shadow)" stroke="#2ac3de" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#2ac3de" opacity="0.15" />
+          <text x="125" y="16" fill="#2ac3de" font-size="12" font-weight="700" text-anchor="middle">MCP协议交互层</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">跨框架统一能力</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">调用协议</text>
+        </g>
+        
+        <g transform="translate(535, 26)">
+          <rect width="250" height="68" rx="6" fill="url(#card4Grad)" filter="url(#shadow)" stroke="#f7768e" stroke-width="0.5" />
+          <rect x="0" y="0" width="250" height="24" rx="6" fill="#f7768e" opacity="0.15" />
+          <text x="125" y="16" fill="#f7768e" font-size="12" font-weight="700" text-anchor="middle">ToolCalling工具调用层</text>
+          <text x="125" y="38" fill="#c0caf5" font-size="10" text-anchor="middle">外部API、检索</text>
+          <text x="125" y="53" fill="#c0caf5" font-size="10" text-anchor="middle">代码执行调度</text>
+        </g>
+      </g>
+
+      <path d="M460 488 L460 511" stroke="#565f89" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+      <!-- ==================== 第5层：LLM模型服务层 ==================== -->
+      <g transform="translate(60, 526)">
+        <rect width="800" height="72" rx="8" fill="url(#layer5Grad)" filter="url(#shadow)" />
+        <rect x="0" y="0" width="8" height="72" fill="#9ece6a" rx="4" />
+        <text x="400" y="28" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="1">LLM模型服务层</text>
+        <text x="400" y="48" fill="#c0caf5" font-size="12" text-anchor="middle">大语言模型推理、多模型路由、Token调度</text>
+        <text x="400" y="64" fill="#565f89" font-size="11" text-anchor="middle">支持 OpenAI、Claude、Gemini、llama 等主流模型</text>
+      </g>
+      
+      <!-- 左侧装饰线 -->
+      <line x1="30" y1="56" x2="30" y2="562" stroke="#7dcfff" stroke-width="2" stroke-dasharray="4" opacity="0.4" />
+      <circle cx="30" cy="56" r="4" fill="#7dcfff" />
+      <circle cx="30" cy="166" r="4" fill="#bb9af7" />
+      <circle cx="30" cy="293" r="4" fill="#7dcfff" />
+      <circle cx="30" cy="436" r="4" fill="#ff9e64" />
+      <circle cx="30" cy="562" r="4" fill="#9ece6a" />
+    </svg>
+  </div>
+  <aside class="notes">
+    <p>智能体开发框架分层架构图，自上而下五层。业务代码层完全隔离框架差异，Orchestrator适配层提供统一调用接口，核心编排层支持LangGraph/Claude SDK/Pi-mono可插拔，能力层通过Skills/MCP/ToolCalling标准化封装，底层LLM服务层统一路由多模型。此架构确保业务无感切换框架，工具跨框架复用。</p>
+  </aside>
+</section>
+
+  <!-- 4. 核心技术栈 -->
+  <section class="slide" data-title="核心技术栈">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">技术栈</span></div>
+    <p class="kicker">// tech-stack</p>
+    <h2 class="h2">核心技术栈</h2>
+    <div class="tool-table mt-l anim-stagger-list" data-anim-target>
+      <div class="tool-row header"><span>层次</span><span>技术</span><span>用途</span></div>
+      <div class="tool-row"><span class="mono">核心框架</span><span>LangChain Core 0.3+</span><span class="dim">标准化LLM调用、工具抽象、提示词模板</span></div>
+      <div class="tool-row"><span class="mono">LLM 接入</span><span>langchain-openai</span><span class="dim">OpenAI 兼容 API（通义千问/硅基流动）</span></div>
+      <div class="tool-row"><span class="mono">流程编排</span><span>LangGraph</span><span class="dim">状态图编排 init→first_pass→second_pass→supplement→final_pass→output</span></div>
+      <div class="tool-row"><span class="mono">数据校验</span><span>Pydantic V2</span><span class="dim">检查点/结果数据模型标准化</span></div>
+      <div class="tool-row"><span class="mono">Web UI</span><span>Streamlit</span><span class="dim">文件上传、行业选择、结果可视化</span></div>
+      <div class="tool-row"><span class="mono">PDF 解析</span><span>pdfplumber</span><span class="dim">PDF 文本+表格提取，构建章节偏移索引</span></div>
+      <div class="tool-row"><span class="mono">关键词搜索</span><span>flashtext</span><span class="dim">AC自动机高性能关键词匹配</span></div>
+      <div class="tool-row"><span class="mono">文本匹配</span><span>difflib</span><span class="dim">术语/政策名称模糊匹配（相似度≥0.85）</span></div>
+      <div class="tool-row"><span class="mono">配置管理</span><span>PyYAML + dotenv</span><span class="dim">YAML配置 + API Key管理</span></div>
+    </div>
+    <p class="dim2 mt-s" style="font-size:12px">选型原则：轻量可维护、API兼容、零成本起步、生产就绪（重试退避+状态持久化）</p>
+    <aside class="notes"><p>LangGraph让三轮流程清晰可控，pdfplumber+偏移量索引实现O(1)章节定位，flashtext支撑数百术语实时匹配。</p></aside>
+  </section>
+
+  <!-- 5. 新增：Agent模式对比（CoT / ReAct / ReWOO） -->
+  <section class="slide" data-title="Agent模式对比">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">架构选型</span></div>
+    <p class="kicker">// agent-paradigms</p>
+    <h2 class="h2">智能体模式对比：CoT · ReAct · ReWOO</h2>
+    <div class="mt-l anim-fade-up" data-anim="fade-up">
+      <table class="compare-table">
+        <thead><tr><th>模式</th><th>核心思想</th><th>Token效率</th><th>工具调用方式</th><th>推理可观测性</th><th>适用场景</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">CoT</td><td>思维链提示，单次推理生成中间推理步骤</td><td>⭐ 低（单次LLM）</td><td>不原生支持工具</td><td>强（推理步骤显式）</td><td>数学/逻辑题，无外部依赖</td></tr>
+          <tr><td class="mono">ReAct</td><td>Reason+Act交替循环，每步可调用工具获取观察</td><td>⭐⭐ 中（多轮LLM）</td><td>交替式，每步结果再喂给LLM</td><td>强（轨迹可追溯）</td><td>复杂交互任务，动态检索/计算</td></tr>
+          <tr class="highlight"><td class="mono">ReWOO</td><td>规划(Planner) → 执行(Worker) → 求解(Solver)，完全解耦</td><td>⭐⭐⭐ 高（仅2次LLM：规划+求解）</td><td>批量确定性执行，工具间链式引用(#E1→#E2)，Worker零LLM</td><td>极强（计划文本+证据链）</td><td><strong>长文档审查、多工具流水线、成本敏感任务</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g2 mt-m">
+      <div class="card card-accent anim-fade-left" data-anim="fade-left"><h4>🔎 为什么选择 ReWOO？</h4><div class="pipe-logic mt-s"><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span>每个检查点需调用3~5个工具，ReAct会引发多轮LLM；ReWOO将工具执行剥离，Worker零成本。</div><div class="logic-row"><span class="logic-dot" style="background:var(--accent)"></span>Worker具备跨检查点缓存 + 参数引用，大幅减少冗余计算。</div><div class="logic-row"><span class="logic-dot" style="background:var(--warn)"></span>Solver基于完整证据链判定，避免ReAct的上下文膨胀，Token节省约40%~60%。</div></div></div>
+      <div class="card card-accent anim-fade-right" data-anim="fade-right" style="--delay:.15s"><h4>📊 量化差异（100页文档 / 30检查点）</h4><div class="pipe-logic mt-s"><div class="logic-row"><span class="mono">ReAct</span>：≈90~150次LLM调用，总Token≈400k~800k</div><div class="logic-row"><span class="mono">ReWOO</span>：≈60次LLM，总Token≈180k~240k，工具可并行</div><div class="logic-row"><strong class="dim2">✅ 成本降低约50%，延迟缩减35%，结果确定性更强</strong></div></div></div>
+    </div>
+    <aside class="notes"><p>ReWOO将“怎么做”与“具体执行”分离，Planner生成工具调用蓝图，Worker批量执行（并行+缓存），Solver综合证据判定——完美匹配文档审查的工具密集+长文本场景。</p></aside>
+  </section>
+
+<!-- ==================== 新增：智能体开发框架选型对比 ==================== -->
+<section class="slide" data-title="框架选型对比">
+  <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">框架选型</span></div>
+  <p class="kicker">// framework-comparison</p>
+  <h2 class="h2">智能体开发框架选型对比</h2>
+  <div class="mt-l anim-fade-up" data-anim="fade-up">
+    <table class="compare-table" style="font-size:12px">
+      <thead>
+        <tr>
+          <th>框架</th><th>核心思想</th><th>适用场景</th><th>优势</th><th>劣势</th><th>LLM调用模式</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">LangChain + LangGraph</td>
+          <td class="dim">链式编排 + 状态图（图结构状态机）</td>
+          <td class="dim">复杂多步智能体、长流程、需精细控制状态</td>
+          <td class="dim">生态丰富（600+集成）、状态持久化、可观测性强、支持循环/分支</td>
+          <td class="dim">学习曲线陡峭、抽象层级多、调试成本较高</td>
+          <td class="dim">灵活：支持ReAct/ReWOO/自定义</td>
+        </tr>
+        <tr>
+          <td class="mono">Claude Agent SDK</td>
+          <td class="dim">Anthropic官方SDK，基于Claude 3的“计算机使用”能力</td>
+          <td class="dim">需要GUI交互、浏览器/桌面自动化、工具调用极简</td>
+          <td class="dim">原生支持视觉+工具调用、低延迟、安全沙箱</td>
+          <td class="dim">仅限Claude模型、自定义能力弱、供应商锁定</td>
+          <td class="dim">ReAct风格，模型自主决策</td>
+        </tr>
+        <tr>
+          <td class="mono">Pi-mono</td>
+          <td class="dim">基于“规划-执行-监控”的轻量级Agent框架</td>
+          <td class="dim">单任务规划、低成本原型、嵌入式场景</td>
+          <td class="dim">轻量（～2k行代码）、易扩展、无外部依赖</td>
+          <td class="dim">社区小、文档少、不支持复杂状态图</td>
+          <td class="dim">类似ReWOO但更简化</td>
+        </tr>
+        <tr>
+          <td class="mono">CrewAI</td>
+          <td class="dim">角色扮演多智能体协作（角色+任务+流程）</td>
+          <td class="dim">多角色协作、任务拆分、模拟团队工作流</td>
+          <td class="dim">声明式角色定义、任务委派、支持顺序/层级流程</td>
+          <td class="dim">多智能体协调开销大、不擅长复杂推理链</td>
+          <td class="dim">每个角色独立调用LLM，并发高</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card card-accent mt-m anim-fade-up" data-anim="fade-up" style="--delay:.2s">
+    <h4>🎯 DocumentReview 的选型结论</h4>
+    <div class="pipe-logic mt-s">
+      <div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>LangGraph</strong> 状态图编排完美适配“三轮渐进式审查”（初审→复核→补充检索→终审），每个阶段可单独调试、中断恢复。</div>
+      <div class="logic-row"><span class="logic-dot" style="background:var(--accent)"></span><strong>生态兼容</strong>：LangChain提供现成工具抽象、PDF解析、向量存储，加速开发。</div>
+      <div class="logic-row"><span class="logic-dot" style="background:var(--warn)"></span><strong>对比Claude SDK</strong>：无需依赖特定模型（支持通义千问等国产模型），避免供应商锁定。</div>
+      <div class="logic-row"><span class="logic-dot" style="background:var(--accent-2)"></span><strong>对比CrewAI</strong>：文档审查是“串行深度推理”而非多角色协作，单Agent + 工具系统更高效。</div>
+    </div>
+    <p class="dim2 mt-s">✅ 最终选择：<strong>LangChain Core + LangGraph</strong>，兼顾编排灵活性、生态成熟度与多模型兼容性。</p>
+  </div>
+  <aside class="notes">
+    <p>框架选型时我们重点评估了四个方向：LangGraph的状态图能清晰表达三轮审查流程，且支持断点续审；Claude SDK虽好但限制模型；CrewAI偏重多角色协作，不适合深度单文档审查；Pi-mono过于简单。因此LangChain+LangGraph是最平衡的选择。</p>
+  </aside>
+</section>
+
+
+  <!-- 6. 审查能力全景 -->
+  <section class="slide" data-title="审查能力全景">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">能力</span></div>
+    <p class="kicker">// capabilities</p>
+    <h2 class="h2">审查能力全景</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--good)">📐</div><h4>格式审查</h4><p class="dim">标题层级合规性、编号连续性、字体统一性、段落间距、页眉页脚</p></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent)">✏️</div><h4>文字审查</h4><p class="dim">错别字检测、语病识别、术语使用规范性、机构名称一致性</p></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent-2)">🏗️</div><h4>结构审查</h4><p class="dim">章节完整性、必含章节覆盖率、逻辑层次清晰度、交叉引用正确性</p></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--warn)">🔗</div><h4>逻辑审查</h4><p class="dim">论证严密性、数据一致性、结论与证据映射、因果逻辑完整性</p></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--bad)">⚖️</div><h4>合规审查</h4><p class="dim">政策引用准确性、标准时效性、数据隐私合规</p></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent-3)">📊</div><h4>报告输出</h4><p class="dim">结构化 JSON 报告、问题溯源定位、修改建议生成、自动评分评级</p></div>
+    </div>
+    <aside class="notes"><p>五大维度均内置专用工具，格式/文字侧重规则引擎，逻辑/合规深度利用LLM推理能力。</p></aside>
+  </section>
+
+  <!-- 7. 整体架构 -->
+  <section class="slide" data-title="整体架构">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">架构</span></div>
+    <p class="kicker">// architecture</p>
+    <h2 class="h2">整体架构：四层解耦 + 显式状态传递</h2>
+    <div class="arch-block anim-rise-in" data-anim="rise-in"><div class="arch-layer-h"><span class="arch-label">用户交互层</span><div class="arch-tags"><span class="pill pill-accent">Streamlit Web UI</span><span class="pill pill-accent">CLI</span></div></div><div class="arch-connector">▼</div></div>
+    <div class="arch-block anim-rise-in" data-anim="rise-in" style="--delay:.1s"><div class="arch-layer-h"><span class="arch-label">LangGraph 状态图编排层</span><div class="arch-tags"><span class="pill" style="border-color:var(--accent-3);color:var(--accent-3)">init → first_pass → second_pass → supplement → final_pass → output</span></div></div><div class="arch-connector">▼</div></div>
+    <div class="arch-block anim-rise-in" data-anim="rise-in" style="--delay:.2s"><div class="arch-layer-h"><span class="arch-label">ReWOO 智能体核心</span><div class="arch-three"><div class="arch-node node-planner" style="flex:1">Planner<br><span class="dim2">规划器 · 🤖</span></div><span class="arch-arrow-right">→</span><div class="arch-node node-worker" style="flex:1">Worker<br><span class="dim2">执行器 · ✗</span></div><span class="arch-arrow-right">→</span><div class="arch-node node-solver" style="flex:1">Solver<br><span class="dim2">求解器 · 🤖</span></div></div></div><div class="arch-connector">▼</div></div>
+    <div class="arch-block anim-rise-in" data-anim="rise-in" style="--delay:.3s"><div class="arch-layer-h"><span class="arch-label">工具与资源层</span><div class="arch-tags"><span class="pill">文档工具</span><span class="pill">术语工具</span><span class="pill">政策工具</span><span class="pill">标准工具</span></div></div><div class="arch-connector">▼</div></div>
+    <div class="arch-block anim-rise-in" data-anim="rise-in" style="--delay:.4s"><div class="arch-layer-h"><span class="arch-label">预处理与数据层</span><div class="arch-tags"><span class="pill">文档解析+索引构建</span><span class="pill">检查点动态加载</span><span class="pill">知识库缓存</span></div></div></div>
+    <aside class="notes"><p>LangGraph确保流程可中断可恢复；ReWOO三层独立部署时Planner/Solver可使用不同LLM；ToolRegistry支持热插拔。</p></aside>
+  </section>
+
+  <!-- 8. 执行流程详解 -->
+  <section class="slide" data-title="执行流程">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">流程</span></div>
+    <p class="kicker">// execution-flow</p>
+    <h2 class="h2">完整执行流程</h2>
+    <div class="flow-steps mt-l anim-stagger-list" data-anim-target>
+      <div class="flow-step"><span class="flow-num" style="background:var(--accent)">1</span><div><strong>文档上传与解析</strong><br><span class="dim2">PDF/TXT → parse_document() → 全文 + 文档索引(doc_index)</span></div></div>
+      <div class="flow-step"><span class="flow-num" style="background:var(--accent-2)">2</span><div><strong>知识库加载</strong><br><span class="dim2">load_terminology/policies/standards → 知识库缓存 + 检查点合并</span></div></div>
+      <div class="flow-step"><span class="flow-num" style="background:var(--accent-3)">3</span><div><strong>工具注册与资源初始化</strong><br><span class="dim2">register_all_tools() → 10 个工具注册到 ToolRegistry；_build_llm() 初始化模型</span></div></div>
+      <div class="flow-step"><span class="flow-num" style="background:var(--good)">4</span><div><strong>初审 · ReWOO 链</strong><br><span class="dim2">对每个检查点：Planner 规划 → Worker 执行工具 → Solver 给出结论</span></div></div>
+      <div class="flow-step"><span class="flow-num" style="background:var(--warn)">5</span><div><strong>复核 + 补充检索</strong><br><span class="dim2">LLM 审查初审正确性 → 发现遗漏章节 → 定向补充检索</span></div></div>
+      <div class="flow-step"><span class="flow-num" style="background:var(--bad)">6</span><div><strong>终审 + 结果输出</strong><br><span class="dim2">争议项裁决 → 双重持久化（时间戳文件 + 累积索引）</span></div></div>
+    </div>
+    <aside class="notes"><p>全流程六步，初审对每个检查点执行ReWOO链，复核检查完整性，补充检索兜底遗漏，终审裁决争议项。</p></aside>
+  </section>
+
+  <!-- 9. 入口方式 -->
+  <section class="slide" data-title="入口方式">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">入口</span></div>
+    <p class="kicker">// entry</p>
+    <h2 class="h2">三种入口方式</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent)">💻</div><h4>CLI 调试模式</h4><p class="dim"><span class="mono">main1.py</span> 单检查点 ReWOO 链调试</p><span class="pill pill-accent mt-s">开发者调试</span></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent-2)">🖥️</div><h4>CLI 全量模式</h4><p class="dim"><span class="mono">main2.py</span> 全量/单点三轮审查，交互式选择</p><span class="pill pill-accent mt-s">批量使用</span></div>
+      <div class="card card-accent"><div class="card-cap-icon" style="color:var(--accent-3)">🌐</div><h4>Web 界面</h4><p class="dim"><span class="mono">app.py</span> (Streamlit) 文件上传+行业选择+审查模式切换+结果展示</p><span class="pill pill-accent mt-s">日常使用</span></div>
+    </div>
+    <p class="dim2 mt-m" style="font-size:12px"><strong>审查模式</strong>：全量审查 / 单点审查 · 复核/终审可独立开关 · 并行度可调节</p>
+    <aside class="notes"><p>三种入口适配开发调试、批量处理与日常交互，Web支持后台线程不阻塞UI。</p></aside>
+  </section>
+
+  <!-- 10. ReWOO 核心 -->
+  <section class="slide" data-title="ReWOO 核心">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · ReWOO</span></div>
+    <p class="kicker">deep-dive · rewoo</p>
+    <h2 class="h2">Planner-Worker-Solver 三阶段</h2>
+    <div class="rewoo-flow mt-l">
+      <div class="rewoo-card card-planner"><div class="rewoo-card-header"><span class="rewoo-phase">01</span><span class="rewoo-title">Planner · 规划器</span><span class="rewoo-llm">🤖 LLM</span></div><div class="rewoo-card-body"><p><strong>输入</strong>：检查点指令 + 文档索引摘要（<em>章节标题树，无正文</em>）</p><p><strong>输出</strong>：计划文本，含 <span class="mono">#E1 = ToolName[params]</span> 占位符</p><p><strong>关键约束</strong>：绝不接触原文，只看章节标题树，避免全文输入浪费 Token</p></div></div>
+      <div class="rewoo-arrow">↓</div>
+      <div class="rewoo-card card-worker"><div class="rewoo-card-header"><span class="rewoo-phase">02</span><span class="rewoo-title">Worker · 执行器</span><span class="rewoo-llm" style="color:var(--good)">✗ 不调 LLM</span></div><div class="rewoo-card-body"><p><strong>输入</strong>：Planner 生成的计划文本</p><p><strong>输出</strong>：所有 <span class="mono">#E</span> 占位符替换为真实工具返回结果</p><p><strong>关键设计</strong>：纯正则解析 + 确定性执行；支持参数间引用；跨检查点共享 <span class="mono">tool_cache</span></p></div></div>
+      <div class="rewoo-arrow">↓</div>
+      <div class="rewoo-card card-solver"><div class="rewoo-card-header"><span class="rewoo-phase">03</span><span class="rewoo-title">Solver · 求解器</span><span class="rewoo-llm">🤖 LLM</span></div><div class="rewoo-card-body"><p><strong>输入</strong>：填充证据后的计划 + 期望输出格式</p><p><strong>输出</strong>：结构化审查结论 <span class="mono">JSON</span>（verdict + evidence + suggestion）</p><p><strong>关键设计</strong>：递归校验键完整性 + 最多 2 次重试 + 平衡花括号 JSON 提取</p></div></div>
+    </div>
+    <div class="rewoo-motto mt-m"><div class="serif">“Planner 想，Worker 做，Solver 判”</div><p class="dim2">—— 三者职责完全分离，ReWOO 精髓</p></div>
+    <aside class="notes"><p>Planner只看章节树规划工具调用；Worker纯执行零LLM；Solver基于证据链做最终裁决。</p></aside>
+  </section>
+
+  <!-- 11. Planner 详解 -->
+  <section class="slide" data-title="Planner 详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · Planner</span></div>
+    <p class="kicker">deep-dive · planner</p>
+    <h2 class="h2">Planner：审查规划的核心</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>Planner 输入</h4><ul><li>检查点 instruction</li><li>文档索引摘要（章节标题树）</li><li>可用工具列表</li></ul><div class="card card-accent mt-s"><h4>Planner 输出格式示例</h4><pre class="pipe-code">Plan: 首先提取文档开头判断格式规范。然后检查术语使用情况。#E1 = GetDocumentHeader[] #E2 = ExtractTerms[text=#E1] #E3 = MatchTerms[terms=#E2] 推理：从文档开头提取术语，检查是否与术语库一致并做拼写校验。</pre></div></div><div class="card card-accent"><h4>关键设计要点</h4><div class="pipe-logic"><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>不看正文</strong>：只看章节标题树，避免全文输入</div><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>#E 占位符</strong>：工具调用的标准语法</div><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>推理指引</strong>：告诉 Solver 如何判断</div><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>重试机制</strong>：最多 2 次，失败加格式提醒</div></div></div></div>
+    <aside class="notes"><p>Planner输出计划模板支持预置plan fallback，只生成工具调用蓝图，不处理真实数据。</p></aside>
+  </section>
+
+  <!-- 12. Worker 详解 -->
+  <section class="slide" data-title="Worker 详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · Worker</span></div>
+    <p class="kicker">deep-dive · worker</p>
+    <h2 class="h2">Worker：确定性执行引擎</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>Worker 核心逻辑</h4><pre class="pipe-code">def execute(plan_text): pattern = r'#E(\d+)\s*=\s*(\w+)\[([^\]]*)]' calls = re.findall(pattern, plan) for id, tool_name, params in calls: resolved = resolve_refs(params, results) cache_key = f"{task_id}:{tool_name}:{json_params}" if cache_key in _cache: result = _cache[cache_key] else: result = tool_registry.run(tool_name, resolved) _cache[cache_key] = result results[f"#E{id}"] = result return fill_evidence(plan_text, results)</pre></div><div class="card card-accent"><h4>关键设计</h4><div class="pipe-logic"><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>LLM 调用为零</strong>：纯正则 + 确定性执行</div><div class="logic-row"><span class="logic-dot" style="background:var(--accent)"></span><strong>参数间引用</strong>：#E2 = Tool[params=#E1] 自动解析</div><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>跨检查点缓存</strong>：同一工具+参数只执行一次</div><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>线程安全</strong>：细粒度 _cache_lock</div></div></div></div>
+    <aside class="notes"><p>Worker纯正则+工具调用，零LLM成本，缓存避免重复执行，参数引用支持链式调用。</p></aside>
+  </section>
+
+  <!-- 13. Solver 详解 -->
+  <section class="slide" data-title="Solver 详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · Solver</span></div>
+    <p class="kicker">deep-dive · solver</p>
+    <h2 class="h2">Solver：基于证据的审查判断</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>Solver 输入 → 输出</h4><pre class="pipe-code">输入：填充证据后的计划 Plan: ... #E1 = GetDocumentHeader[] → "第一章 总则…" #E2 = ExtractTerms[] → ["事项","招标"] #E3 = SpellCheckTerm[] → ["事顶"(应写为"事项")] 推理：... 输出：{"verdict":"不合格","evidence":"文档开头'事项'出现8次，其中3次误写为'事顶'","suggestion":"将'事顶'统一替换为'事项'"}</pre></div><div class="card card-accent"><h4>格式保障</h4><div class="pipe-logic"><div class="logic-row">递归校验输出键完整性</div><div class="logic-row">最多 2 次重试</div><div class="logic-row"><strong>平衡花括号算法</strong>增强 JSON 提取</div></div></div></div>
+    <aside class="notes"><p>Solver依靠证据链做语义判断，支持语病检查、错别字、术语合规判定。</p></aside>
+  </section>
+
+  <!-- 14. 三轮审查概览 -->
+  <section class="slide" data-title="三轮审查">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 流程</span></div>
+    <p class="kicker">deep-dive · pipeline</p>
+    <h2 class="h2">三轮渐进式审查</h2>
+    <div class="pipe-row mt-l"><div class="pipe-stage"><div class="pipe-num" style="border-color:var(--accent);color:var(--accent)">1</div><div class="pipe-box" style="border-color:var(--accent)"><div class="pipe-title">初审</div><div class="pipe-desc">ReWOO 链执行</div></div><div class="pipe-llm">🤖 N 次</div></div><div class="pipe-connector">→</div><div class="pipe-stage"><div class="pipe-num" style="border-color:var(--accent-2);color:var(--accent-2)">2</div><div class="pipe-box" style="border-color:var(--accent-2)"><div class="pipe-title">复核</div><div class="pipe-desc">正确性+完整性</div></div><div class="pipe-llm">🤖 N 次</div></div><div class="pipe-connector">→</div><div class="pipe-stage"><div class="pipe-num" style="border-color:var(--warn);color:var(--warn)">3</div><div class="pipe-box" style="border-color:var(--warn)"><div class="pipe-title">补充检索</div><div class="pipe-desc">遗漏章节定向</div></div><div class="pipe-llm">🤖 M 次</div></div><div class="pipe-connector">→</div><div class="pipe-stage"><div class="pipe-num" style="border-color:var(--bad);color:var(--bad)">4</div><div class="pipe-box" style="border-color:var(--bad)"><div class="pipe-title">终审</div><div class="pipe-desc">争议项裁决</div></div><div class="pipe-llm">🤖 K 次</div></div></div>
+    <div class="merger-matrix mt-m"><h4>补充检索合并矩阵</h4><div class="matrix-grid"><div class="matrix-cell header">初审结论</div><div class="matrix-cell header">补充发现</div><div class="matrix-cell header">合并结论</div><div class="matrix-cell">合格</div><div class="matrix-cell">无新增</div><div class="matrix-cell">合格 ↑</div><div class="matrix-cell">合格</div><div class="matrix-cell">有新问题</div><div class="matrix-cell">不合格</div><div class="matrix-cell">不合格</div><div class="matrix-cell">无新增</div><div class="matrix-cell">维持</div><div class="matrix-cell">无法判断</div><div class="matrix-cell">有新发现</div><div class="matrix-cell">不合格</div></div></div>
+    <p class="dim2 mt-s">总计约 <strong>3N + M + K</strong> 次 LLM 调用（N=检查点数, M=遗漏章节数, K=争议项数）</p>
+    <aside class="notes"><p>总LLM调用约3N+M+K，在保证质量前提下控制成本。</p></aside>
+  </section>
+
+  <!-- 15. 初审详解 -->
+  <section class="slide" data-title="初审详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 初审</span></div>
+    <p class="kicker">deep-dive · first-pass</p>
+    <h2 class="h2">初审：ReWOO 链执行</h2>
+    <div class="flow-steps mt-l"><div class="flow-step"><span class="flow-num" style="background:var(--bad)">P</span><div><strong>Planner 规划</strong><br>检查点指令+章节标题树 → 计划</div></div><div class="flow-step"><span class="flow-num" style="background:var(--good)">W</span><div><strong>Worker 执行</strong><br>正则解析 #E → 调用工具 → 缓存 → 填充证据</div></div><div class="flow-step"><span class="flow-num" style="background:var(--warn)">S</span><div><strong>Solver 求解</strong><br>基于证据判断 → 输出JSON</div></div></div>
+    <div class="grid g2 mt-m"><div class="card card-accent"><h4>并行执行</h4><p>检查点通过 ThreadPoolExecutor 并行执行，并行度可配置，每个线程独立实例。</p></div><div class="card card-accent"><h4>输出结构</h4><pre class="pipe-code">{"checkpoint_id":"ATOM-001","verdict":"不合格","evidence":"...","error":null}</pre></div></div>
+    <aside class="notes"><p>初审每个检查点独立执行ReWOO链，并行处理，输出标准化结果传入复核。</p></aside>
+  </section>
+
+  <!-- 16. 复核详解 -->
+  <section class="slide" data-title="复核详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 复核</span></div>
+    <p class="kicker">deep-dive · second-pass</p>
+    <h2 class="h2">复核：LLM 审查初审质量</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>审查维度</h4><div class="pipe-logic"><div class="logic-row">一致性、完整性、充分性、逻辑性</div></div><h4 class="mt-s">输出字段</h4><p>expected_check_items, covered_items, <strong>missing_items</strong>（具体章节名）</p></div><div class="card card-accent"><h4>置信度机制</h4><div class="pipe-logic"><div class="logic-row"><span class="pill" style="background:rgba(158,206,106,.2);color:var(--good)">high</span> 可靠</div><div class="logic-row"><span class="pill" style="background:rgba(224,175,104,.2);color:var(--warn)">medium</span> 不确定</div><div class="logic-row"><span class="pill" style="background:rgba(247,118,142,.2);color:var(--bad)">low</span> → 触发终审</div></div></div></div>
+    <aside class="notes"><p>复核不重审文档，而是审查初审结论的质量，missing_items直接驱动补充检索。</p></aside>
+  </section>
+
+  <!-- 17. 补充检索详解 -->
+  <section class="slide" data-title="补充检索详解">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 补充检索</span></div>
+    <p class="kicker">deep-dive · supplement</p>
+    <h2 class="h2">补充检索：遗漏章节定向分析</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>触发条件</h4><p>missing_items 非空 → 对每个遗漏章节提取原文，LLM轻量分析</p><p>每个遗漏章节 1 次 LLM 调用，总量 = M 次</p></div><div class="card card-accent"><h4>合并决策矩阵</h4><div class="matrix-grid"><div class="matrix-cell">初审合格+无新增→合格↑</div><div class="matrix-cell">合格+新问题→不合格</div><div class="matrix-cell">不合格+无新增→维持</div><div class="matrix-cell">无法判断+新发现→不合格</div></div></div></div>
+    <aside class="notes"><p>补充检索按需执行，由missing_items驱动，避免冗余LLM调用。</p></aside>
+  </section>
+
+  <!-- 18. Verdict 归一化 -->
+  <section class="slide" data-title="Verdict 归一化">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 归一化</span></div>
+    <p class="kicker">deep-dive · normalization</p>
+    <h2 class="h2">Verdict 归一化机制</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>为什么需要归一化？</h4><p>LLM输出千变万化："有"/"无"/"适用"/"缺失"/"合规"/"不合格" → 必须映射到标准三分类</p><div class="pipe-logic"><div class="logic-row"><span class="logic-dot" style="background:var(--good)"></span><strong>合格</strong>：符合要求</div><div class="logic-row"><span class="logic-dot" style="background:var(--bad)"></span><strong>不合格</strong>：存在问题</div><div class="logic-row"><span class="logic-dot" style="background:var(--warn)"></span><strong>无法判断</strong>：证据不足</div></div></div><div class="card card-accent"><h4>judgment_type 映射</h4><div class="pipe-logic"><div class="logic-row"><span class="pill">binary</span> 检查问题：无→合格，有→不合格</div><div class="logic-row"><span class="pill">presence</span> 检查内容：有→合格，无→不合格</div><div class="logic-row"><span class="pill">enumeration</span> 枚举型：需人工复核</div></div></div></div>
+    <aside class="notes"><p>通过正向/负向词典+类型映射，将所有LLM输出标准化，保证下游一致处理。</p></aside>
+  </section>
+
+  <!-- 19. 终审裁决 -->
+  <section class="slide" data-title="终审裁决">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">深潜 · 终审</span></div>
+    <p class="kicker">deep-dive · final-pass</p>
+    <h2 class="h2">终审：争议项裁决</h2>
+    <div class="grid g2 mt-l"><div class="card card-accent"><h4>触发条件</h4><ul><li>初审执行失败</li><li>复核 confidence "low"</li><li>初审与复核 verdict 不一致</li></ul></div><div class="card card-accent"><h4>无争议则直接归一化</h4><p>初审与复核一致且置信度高 → 跳过LLM调用，直接 normalize_verdict()</p><p>优先使用强模型（config.models.strong）进行终审裁决。</p></div></div>
+    <aside class="notes"><p>终审按需执行，大部分检查点无需终审，大幅节省Token。</p></aside>
+  </section>
+
+  <!-- 20. 工具系统与技术亮点 -->
+  <section class="slide" data-title="工具系统与技术亮点">
+    <div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">亮点</span></div>
+    <p class="kicker">// tools & highlights</p>
+    <h2 class="h2">10 个工具 · 精准分工</h2>
+    <div class="grid g2 mt-l"><div class="tool-table"><div class="tool-row header"><span>工具</span><span>用途</span><span>LLM</span></div><div class="tool-row"><span class="mono">GetSectionText</span><span>章节原文提取</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">SearchKeywords</span><span>关键词搜索</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">GetDocumentHeader</span><span>文首提取</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">ExtractTerms</span><span>术语提取</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">MatchTerms</span><span>术语比对</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">SpellCheckTerm</span><span>拼写校验</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">ExtractPolicies</span><span>政策提取</span><span class="use-llm">✓</span></div><div class="tool-row"><span class="mono">MatchPolicies</span><span>政策比对</span><span class="no-llm">✗</span></div><div class="tool-row"><span class="mono">ExtractStandards</span><span>标准提取</span><span class="use-llm">✓</span></div><div class="tool-row"><span class="mono">MatchStandards</span><span>标准比对</span><span class="no-llm">✗</span></div></div><div class="highlight-card"><div class="hl-item"><span class="hl-icon">💰</span><div><strong>8/10 零LLM</strong><br>规则引擎执行，成本几乎为零</div></div><div class="hl-item"><span class="hl-icon">⚡</span><div><strong>确定性结果</strong><br>可调试可复现</div></div><div class="hl-item"><span class="hl-icon">🔗</span><div><strong>链式调用</strong><br>工具间通过#E引用传递</div></div></div></div>
+    <aside class="notes"><p>仅政策/标准提取需LLM，其余8工具纯规则+缓存，成本极低且结果确定。</p></aside>
+  </section>
+
+  <!-- 21. 文档工具详解 -->
+  <section class="slide" data-title="文档工具"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">工具 · 文档</span></div><p class="kicker">tools · document</p><h2 class="h2">文档工具：3 个基础工具</h2><div class="grid g3 mt-l"><div class="card card-accent"><h4>GetSectionText</h4><p>按章节名/ID提取原文，字符偏移切片，支持级联提取子节</p><span class="no-llm">✗ 无LLM</span></div><div class="card card-accent"><h4>SearchKeywords</h4><p>flashtext (AC自动机) 高性能批量匹配</p><span class="no-llm">✗ 无LLM</span></div><div class="card card-accent"><h4>GetDocumentHeader</h4><p>提取文档开头500字符，快速获取概况</p><span class="no-llm">✗ 无LLM</span></div></div><aside class="notes"><p>三个文档工具基于偏移量切片和AC自动机，零LLM成本。</p></aside></section>
+  <section class="slide" data-title="术语工具"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">工具 · 术语</span></div><p class="kicker">tools · terminology</p><h2 class="h2">术语工具：3 个专业工具</h2><div class="grid g3 mt-l"><div class="card card-accent"><h4>ExtractTerms</h4><p>从文本中提取术语（别名匹配+词性过滤）</p><span class="no-llm">✗ 无LLM</span></div><div class="card card-accent"><h4>MatchTerms</h4><p>术语列表与术语库比对（字典查找+归一化）</p><span class="no-llm">✗ 无LLM</span></div><div class="card card-accent"><h4>SpellCheckTerm</h4><p>difflib模糊匹配，相似度评分</p><span class="no-llm">✗ 无LLM</span></div></div><aside class="notes"><p>术语工具链式调用：提取→比对→拼写校验，全程无LLM。</p></aside></section>
+  <section class="slide" data-title="政策标准工具"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">工具 · 政策标准</span></div><p class="kicker">tools · policies & standards</p><h2 class="h2">政策与标准工具</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>ExtractPolicies · 🤖 LLM</h4><p>从文本中提取政策名称和文号，语义理解去重</p><h4 class="mt-s">MatchPolicies · ✗ 无LLM</h4><p>双路索引（名称+文号）+相似度+一致性校验</p></div><div class="card card-accent"><h4>ExtractStandards · 🤖 LLM</h4><p>从文本中提取标准名称和编号</p><h4 class="mt-s">MatchStandards · ✗ 无LLM</h4><p>双路索引+相似度+一致性校验</p></div></div><aside class="notes"><p>提取用LLM应对变体写法，比对用规则引擎高效准确。</p></aside></section>
+  <section class="slide" data-title="数据模型"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">模型</span></div><p class="kicker">// data-models</p><h2 class="h2">Pydantic 数据模型设计</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>Checkpoint</h4><pre class="pipe-code">id: str; instruction: str; judgment_type: str; expected_output_format: Dict</pre><h4>Plan</h4><pre>raw_text: str; tool_calls: List[ToolCall]</pre></div><div class="card card-accent"><h4>ReviewState (LangGraph)</h4><p>TypedDict 贯穿三轮: doc_path, industry, checkpoints, first_pass_results, second_pass_results, supplemented_results, final_results</p></div></div><aside class="notes"><p>Pydantic保证类型安全，ReviewState让数据流显式可追踪。</p></aside></section>
+  <section class="slide" data-title="配置与扩展"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">扩展</span></div><p class="kicker">// config-extensibility</p><h2 class="h2">配置与行业可插拔</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>配置加载优先级</h4><div class="pipe-logic"><div class="logic-row">default.yaml → industries/{industry}.yaml → .env</div></div><h4>新增行业只需3个文件</h4><div>checkpoints/industries/{行业}.json, term_kb.json, policy_kb.json</div></div><div class="card card-accent"><h4>检查点合并策略</h4><p>base + industry 以id合并，行业覆盖通用，结果缓存+ mtime失效检测。</p><pre class="pipe-code">data/checkpoints/base_checkpoints.json data/checkpoints/industries/medical_insurance.json</pre></div></div><aside class="notes"><p>三层配置逐层覆盖，行业扩展仅需新增JSON文件。</p></aside></section>
+  <section class="slide" data-title="文档解析"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">解析</span></div><p class="kicker">// parsing</p><h2 class="h2">文档解析能力</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>支持格式</h4><p>TXT (UTF-8/GBK), PDF (pdfplumber + 表格→Markdown)</p><h4>章节识别：4种标题模式</h4><p>带点多级阿拉伯数字、中文一级标题、第X章、Markdown标题</p></div><div class="card card-accent"><h4>文档索引结构</h4><pre class="pipe-code">{title, total_chars, sections: [{id, heading, level, offset, length, parent}]}</pre><p>父子层级关系构建，get_section_text支持子节级联提取</p></div></div><aside class="notes"><p>解析产出偏移索引，支持O(1)章节定位和级联提取。</p></aside></section>
+  <section class="slide" data-title="并发与资源隔离"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">并发</span></div><p class="kicker">// concurrency</p><h2 class="h2">并发安全与资源隔离</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>任务资源隔离</h4><p>基于ContextVar实现隐式task_id传递，自动生成UUID，资源按task_id存放。</p></div><div class="card card-accent"><h4>检查点并行执行</h4><p>ThreadPoolExecutor并行，max_checkpoints_parallel控制并行度（默认10），每个线程独立实例。</p><p>全局锁保护字典操作，ToolRegistry单例+双重检查锁，Worker细粒度缓存锁。</p></div></div><aside class="notes"><p>ContextVar保证任务隔离，线程池并行提升吞吐，细粒度锁保证安全。</p></aside></section>
+  <section class="slide" data-title="Web UI"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">UI</span></div><p class="kicker">// web-ui</p><h2 class="h2">Streamlit Web 界面</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>核心功能</h4><ul><li>文档上传（PDF/TXT）+行业选择</li><li>审查模式切换：全量/单点</li><li>三轮审查独立开关，并行度滑块调节</li><li>结果展示：统计面板+表格+详情展开</li><li>判定徽章：合格/不合格/无法判断</li></ul></div><div class="card card-accent"><h4>线程安全设计</h4><p>后台线程result_holder传结果，StreamlitLogHandler线程安全日志捕获，cancel_event支持中途停止，临时文件24小时自动清理。</p></div></div><aside class="notes"><p>Web界面不阻塞UI，后台线程运行审查，实时日志和停止按钮提升体验。</p></aside></section>
+  <section class="slide" data-title="部署方案"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">部署</span></div><p class="kicker">// deployment</p><h2 class="h2">多种部署方案</h2><div class="tool-table mt-l"><div class="tool-row header"><span>模式</span><span>适用场景</span><span>技术方案</span></div><div class="tool-row"><span class="mono">单机版</span><span>个人/小团队</span><span>本地Python + CLI/Streamlit</span></div><div class="tool-row"><span class="mono">Web A</span><span>5-10人团队</span><span>Docker单容器Streamlit</span></div><div class="tool-row"><span class="mono">Web B</span><span>10-50人</span><span>Docker多实例+Nginx负载均衡</span></div><div class="tool-row"><span class="mono">Web C</span><span>50+人/高并发</span><span>FastAPI REST API + 自定义前端</span></div></div><div class="card card-accent mt-m"><h4>建议路线</h4><div class="pipe-logic"><div class="logic-row">起步：单机版+Streamlit；团队：Docker+Nginx；企业：FastAPI+自定义前端</div></div></div><aside class="notes"><p>从单机到企业级弹性扩展，当前运行于单机版。</p></aside></section>
+  <section class="slide" data-title="产出持久化"><div class="deck-header"><span class="eyebrow">DocumentReview · 技术分享</span><span class="eyebrow">持久化</span></div><p class="kicker">// persistence</p><h2 class="h2">审查结果双重持久化</h2><div class="grid g2 mt-l"><div class="card card-accent"><h4>时间戳文件</h4><p class="mono">output/review_v_{timestamp}_{docHash}.json</p><p>完整审查结果+元数据（时间、行业、知识库版本MD5）</p></div><div class="card card-accent"><h4>累积索引</h4><p class="mono">output/review_results.json</p><p>按时间倒序记录每次运行摘要，结构：{"runs": [{version, timestamp, doc_path}]}</p></div></div><div class="card card-accent mt-m"><h4>容错机制</h4><p>LLM重试退避，JSON平衡花括号提取，工具缓存自动去重，临时文件自动清理。</p></div><aside class="notes"><p>双重保存防止数据丢失，知识库版本MD5可追溯。</p></aside></section>
+
+  <!-- 31. Q&A -->
+  <section class="slide center tc" data-title="Q and A">
+    <div class="deck-header" style="justify-content:center"><span class="eyebrow">DocumentReview · Q&A</span></div>
+    <div><div class="q-mark anim-rise-in">?</div><h2 class="h2 anim-rise-in">Questions?</h2><div class="qa-content anim-fade-up"><p class="lede">感谢聆听，欢迎交流</p><div class="row mt-l" style="justify-content:center"><span class="pill pill-accent">📄 github.com/jason/docreview</span><span class="pill">💬 jason@tencent.com</span></div><div class="thanks-card mt-l"><div class="thanks-title">今天的关键点</div><div class="thanks-items"><span>ReWOO + LangGraph 架构</span><span>Planner-Worker-Solver 三阶段解耦</span><span>三轮渐进式审查 · 按需LLM调用</span><span>10工具系统 · 8个零LLM</span><span>行业可插拔 · 三层配置</span></div></div></div><p class="dim2 mt-l" style="font-size:13px">← / → 翻页 · T 主题 · S 演讲者模式 · F 全屏</p></div>
+    <aside class="notes"><p>总结：ReWOO+LangGraph实现低成本高可信文档审查，工具解耦，行业可扩展。谢谢！</p></aside>
+  </section>
+
+</div>
+<div class="deck-footer" style="position:fixed"><span class="mono">#docreview #ai-agent #rewoo</span><span class="slide-number" data-current="1" data-total="31"></span></div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>
