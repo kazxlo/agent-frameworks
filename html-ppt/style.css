@@ -211,7 +211,7 @@
 }
 .tpl-docreview .tool-row{
   display:grid;grid-template-columns:1.2fr 1.5fr .5fr;
-  padding:6px 12px;font-size:12px;border-bottom:1px solid var(--border);
+  padding:8px 12px;font-size:15px;border-bottom:1px solid var(--border);
   align-items:center
 }
 .tpl-docreview .tool-row:last-child{border:none}
