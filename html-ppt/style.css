@@ -267,3 +267,8 @@
 /* ===== Anim helpers ===== */
 .tpl-docreview [style*="--delay"]{animation-delay:var(--delay)}
 .tpl-docreview pre{overflow-x:auto;scrollbar-width:thin}
+
+/* 增加 deck-header 与下方内容的间距 */
+.tpl-docreview .deck-header {
+    margin-bottom: 50px;
+}
