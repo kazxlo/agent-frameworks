@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-09T22:00:55.359Z",
+  "lastUpdated": "2026-06-09T23:47:36.465Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 131324,
+      "stars": 131334,
       "latestVersion": "v2.1.170",
       "latestReleaseDate": "2026-06-09T17:23:09Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 24760,
+      "stars": 24761,
       "latestVersion": "@ai-sdk/vue@3.0.199",
       "latestReleaseDate": "2026-06-09T17:26:06Z",
       "npmDownloads": 57556032
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 50045,
+      "stars": 50046,
       "latestVersion": "v0.14.22",
       "latestReleaseDate": "2026-05-14T20:22:24Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 138898,
+      "stars": 138900,
       "latestVersion": "langchain-core==1.4.3",
       "latestReleaseDate": "2026-06-09T20:32:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 34296,
+      "stars": 34299,
       "latestVersion": "1.2.4",
       "latestReleaseDate": "2026-06-02T17:07:49Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 61253,
+      "stars": 61263,
       "latestVersion": "v0.79.1",
       "latestReleaseDate": "2026-06-09T21:16:30Z",
       "npmDownloads": 122
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 53150,
+      "stars": 53156,
       "latestVersion": "1.14.6",
       "latestReleaseDate": "2026-05-28T17:04:02Z",
       "npmDownloads": null
