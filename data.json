@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T06:44:13.775Z",
+  "lastUpdated": "2026-06-20T09:55:17.698Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 133397,
+      "stars": 133409,
       "latestVersion": "v2.1.183",
       "latestReleaseDate": "2026-06-19T01:20:50Z",
       "npmDownloads": null
@@ -80,7 +80,7 @@
       "stars": 24998,
       "latestVersion": "@ai-sdk/vue@3.0.208",
       "latestReleaseDate": "2026-06-18T01:02:16Z",
-      "npmDownloads": 60051643
+      "npmDownloads": 59847366
     },
     {
       "id": "google-adk",
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20188,
+      "stars": 20190,
       "latestVersion": "v2.3.0",
       "latestReleaseDate": "2026-06-18T18:45:04Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27273,
+      "stars": 27275,
       "latestVersion": "v0.17.6",
       "latestReleaseDate": "2026-06-19T06:03:31Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 11487,
+      "stars": 11494,
       "latestVersion": "python-1.9.0",
       "latestReleaseDate": "2026-06-18T09:03:33Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 27935,
+      "stars": 27937,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 50230,
+      "stars": 50234,
       "latestVersion": "v0.14.22",
       "latestReleaseDate": "2026-05-14T20:22:24Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139735,
+      "stars": 139741,
       "latestVersion": "langchain-core==1.4.8",
       "latestReleaseDate": "2026-06-18T19:39:42Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 35246,
+      "stars": 35261,
       "latestVersion": "1.2.6",
       "latestReleaseDate": "2026-06-18T20:58:32Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 17863,
+      "stars": 17864,
       "latestVersion": "v1.107.0",
       "latestReleaseDate": "2026-06-10T14:40:24Z",
       "npmDownloads": null
@@ -477,10 +477,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 64133,
+      "stars": 64160,
       "latestVersion": "v0.79.8",
       "latestReleaseDate": "2026-06-19T07:55:20Z",
-      "npmDownloads": 104
+      "npmDownloads": 102
     },
     {
       "id": "crewai",
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 54006,
+      "stars": 54012,
       "latestVersion": "1.14.7",
       "latestReleaseDate": "2026-06-11T17:13:46Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40772,
+      "stars": 40773,
       "latestVersion": "v2.6.18",
       "latestReleaseDate": "2026-06-18T20:36:43Z",
       "npmDownloads": null
