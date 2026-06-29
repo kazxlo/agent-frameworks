@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T22:44:11.075Z",
+  "lastUpdated": "2026-06-29T23:48:59.969Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,9 +37,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 134982,
-      "latestVersion": "v2.1.195",
-      "latestReleaseDate": "2026-06-26T21:29:42Z",
+      "stars": 134987,
+      "latestVersion": "v2.1.196",
+      "latestReleaseDate": "2026-06-29T23:27:32Z",
       "npmDownloads": null
     },
     {
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 25240,
-      "latestVersion": "@ai-sdk/workflow-harness@1.0.8",
-      "latestReleaseDate": "2026-06-29T19:16:55Z",
+      "latestVersion": "@ai-sdk/workflow-harness@1.0.9",
+      "latestReleaseDate": "2026-06-29T23:10:17Z",
       "npmDownloads": 60737132
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20337,
+      "stars": 20338,
       "latestVersion": "v2.3.0",
       "latestReleaseDate": "2026-06-18T18:45:04Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 140511,
+      "stars": 140513,
       "latestVersion": "langchain-core==1.4.8",
       "latestReleaseDate": "2026-06-18T19:39:42Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 36045,
+      "stars": 36049,
       "latestVersion": "1.2.6",
       "latestReleaseDate": "2026-06-18T20:58:32Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 66515,
+      "stars": 66518,
       "latestVersion": "v0.80.2",
       "latestReleaseDate": "2026-06-23T22:03:53Z",
       "npmDownloads": 78
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 54566,
+      "stars": 54570,
       "latestVersion": "1.15.1",
       "latestReleaseDate": "2026-06-27T06:50:46Z",
       "npmDownloads": null
