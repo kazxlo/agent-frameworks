@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T21:36:19.942Z",
+  "lastUpdated": "2026-07-03T22:50:42.882Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 135795,
+      "stars": 135812,
       "latestVersion": "v2.1.200",
       "latestReleaseDate": "2026-07-03T16:52:33Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27628,
+      "stars": 27629,
       "latestVersion": "v0.17.7",
       "latestReleaseDate": "2026-06-24T05:15:03Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 11850,
+      "stars": 11851,
       "latestVersion": "dotnet-1.13.0",
       "latestReleaseDate": "2026-07-03T17:42:32Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 50630,
+      "stars": 50632,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 140856,
+      "stars": 140859,
       "latestVersion": "langchain-core==1.4.8",
       "latestReleaseDate": "2026-06-18T19:39:42Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 36414,
+      "stars": 36415,
       "latestVersion": "1.2.7",
       "latestReleaseDate": "2026-06-30T01:24:26Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 67439,
+      "stars": 67446,
       "latestVersion": "v0.80.3",
       "latestReleaseDate": "2026-06-30T20:34:32Z",
       "npmDownloads": 84
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 54850,
+      "stars": 54854,
       "latestVersion": "1.15.1",
       "latestReleaseDate": "2026-06-27T06:50:46Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40983,
+      "stars": 40986,
       "latestVersion": "v2.6.22",
       "latestReleaseDate": "2026-07-03T15:23:41Z",
       "npmDownloads": null
