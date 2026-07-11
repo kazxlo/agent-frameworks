@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T15:27:06.525Z",
+  "lastUpdated": "2026-07-11T16:14:30.648Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 137418,
+      "stars": 137422,
       "latestVersion": "v2.1.207",
       "latestReleaseDate": "2026-07-11T00:52:10Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25486,
+      "stars": 25487,
       "latestVersion": "@ai-sdk/harness-opencode@1.0.28",
       "latestReleaseDate": "2026-07-10T22:16:01Z",
       "npmDownloads": 68380495
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12034,
+      "stars": 12033,
       "latestVersion": "python-1.11.0",
       "latestReleaseDate": "2026-07-10T03:19:16Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141518,
+      "stars": 141527,
       "latestVersion": "langchain-core==1.4.9",
       "latestReleaseDate": "2026-07-08T20:07:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 37041,
+      "stars": 37045,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 69645,
+      "stars": 69646,
       "latestVersion": "v0.80.6",
       "latestReleaseDate": "2026-07-09T23:22:08Z",
       "npmDownloads": 89
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 55351,
+      "stars": 55354,
       "latestVersion": "1.15.2",
       "latestReleaseDate": "2026-07-08T02:05:22Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41095,
+      "stars": 41097,
       "latestVersion": "v2.7.2",
       "latestReleaseDate": "2026-07-09T11:34:42Z",
       "npmDownloads": null
