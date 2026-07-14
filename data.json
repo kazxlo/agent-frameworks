@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14T21:27:11.730Z",
+  "lastUpdated": "2026-07-14T22:27:55.425Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -77,9 +77,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25556,
-      "latestVersion": "@ai-sdk/google@3.0.93",
-      "latestReleaseDate": "2026-07-14T21:27:04Z",
+      "stars": 25555,
+      "latestVersion": "@ai-sdk/deepseek@1.0.47",
+      "latestReleaseDate": "2026-07-14T21:37:17Z",
       "npmDownloads": 66246584
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20611,
+      "stars": 20612,
       "latestVersion": "v2.4.0",
       "latestReleaseDate": "2026-07-07T19:45:22Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12119,
+      "stars": 12122,
       "latestVersion": "python-1.11.0",
       "latestReleaseDate": "2026-07-10T03:19:16Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141775,
+      "stars": 141778,
       "latestVersion": "langchain-core==1.4.9",
       "latestReleaseDate": "2026-07-08T20:07:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 37298,
+      "stars": 37299,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 71009,
+      "stars": 71013,
       "latestVersion": "v0.80.7",
       "latestReleaseDate": "2026-07-14T16:41:53Z",
       "npmDownloads": 88
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 55527,
+      "stars": 55530,
       "latestVersion": "1.15.2",
       "latestReleaseDate": "2026-07-08T02:05:22Z",
       "npmDownloads": null
