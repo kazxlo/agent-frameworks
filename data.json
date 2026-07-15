@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T21:49:43.170Z",
+  "lastUpdated": "2026-07-15T22:44:32.222Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 137981,
+      "stars": 137983,
       "latestVersion": "v2.1.210",
       "latestReleaseDate": "2026-07-14T23:45:25Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25575,
+      "stars": 25576,
       "latestVersion": "@ai-sdk/workflow-harness@1.0.34",
       "latestReleaseDate": "2026-07-15T20:22:10Z",
       "npmDownloads": 68248073
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27929,
+      "stars": 27931,
       "latestVersion": "v0.18.2",
       "latestReleaseDate": "2026-07-11T01:07:46Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12136,
+      "stars": 12137,
       "latestVersion": "python-1.11.0",
       "latestReleaseDate": "2026-07-10T03:19:16Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 28373,
+      "stars": 28374,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141854,
+      "stars": 141857,
       "latestVersion": "langchain-core==1.4.9",
       "latestReleaseDate": "2026-07-08T20:07:10Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18553,
+      "stars": 18555,
       "latestVersion": "v2.10.0",
       "latestReleaseDate": "2026-07-15T01:57:12Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 71393,
+      "stars": 71399,
       "latestVersion": "v0.80.7",
       "latestReleaseDate": "2026-07-14T16:41:53Z",
       "npmDownloads": 87
