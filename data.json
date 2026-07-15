@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T19:58:45.578Z",
+  "lastUpdated": "2026-07-15T20:56:50.394Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 25575,
-      "latestVersion": "@ai-sdk/xai@2.0.79",
-      "latestReleaseDate": "2026-07-15T17:08:52Z",
+      "latestVersion": "@ai-sdk/workflow-harness@1.0.34",
+      "latestReleaseDate": "2026-07-15T20:22:10Z",
       "npmDownloads": 68248073
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20625,
+      "stars": 20626,
       "latestVersion": "v2.4.0",
       "latestReleaseDate": "2026-07-07T19:45:22Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12134,
+      "stars": 12136,
       "latestVersion": "python-1.11.0",
       "latestReleaseDate": "2026-07-10T03:19:16Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141850,
+      "stars": 141851,
       "latestVersion": "langchain-core==1.4.9",
       "latestReleaseDate": "2026-07-08T20:07:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 37367,
+      "stars": 37368,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 71382,
+      "stars": 71385,
       "latestVersion": "v0.80.7",
       "latestReleaseDate": "2026-07-14T16:41:53Z",
       "npmDownloads": 87
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 55583,
+      "stars": 55584,
       "latestVersion": "1.15.2",
       "latestReleaseDate": "2026-07-08T02:05:22Z",
       "npmDownloads": null
