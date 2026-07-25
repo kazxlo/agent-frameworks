@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-24T23:51:57.263Z",
+  "lastUpdated": "2026-07-25T01:19:31.544Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 138968,
+      "stars": 138972,
       "latestVersion": "v2.1.219",
       "latestReleaseDate": "2026-07-24T17:14:23Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12373,
+      "stars": 12375,
       "latestVersion": "python-github-copilot-1.0.0",
       "latestReleaseDate": "2026-07-23T21:32:23Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142536,
+      "stars": 142539,
       "latestVersion": "langchain-core==1.5.1",
       "latestReleaseDate": "2026-07-23T20:13:35Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38063,
+      "stars": 38066,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -438,9 +438,9 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18800,
-      "latestVersion": "v2.17.0",
-      "latestReleaseDate": "2026-07-24T00:32:49Z",
+      "stars": 18801,
+      "latestVersion": "v2.18.0",
+      "latestReleaseDate": "2026-07-25T01:01:03Z",
       "npmDownloads": null
     },
     {
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 77041,
+      "stars": 77068,
       "latestVersion": "v0.82.0",
       "latestReleaseDate": "2026-07-24T06:12:16Z",
       "npmDownloads": 103
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56083,
+      "stars": 56087,
       "latestVersion": "1.15.6",
       "latestReleaseDate": "2026-07-24T20:30:33Z",
       "npmDownloads": null
