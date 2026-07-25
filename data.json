@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-25T10:49:13.838Z",
+  "lastUpdated": "2026-07-25T11:54:17.992Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139011,
+      "stars": 139018,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25782,
+      "stars": 25784,
       "latestVersion": "@ai-sdk/google-vertex@4.0.171",
       "latestReleaseDate": "2026-07-24T21:17:05Z",
       "npmDownloads": 71756974
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20874,
+      "stars": 20875,
       "latestVersion": "v2.5.0",
       "latestReleaseDate": "2026-07-16T20:41:30Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142566,
+      "stars": 142568,
       "latestVersion": "langchain-core==1.5.1",
       "latestReleaseDate": "2026-07-23T20:13:35Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38102,
+      "stars": 38104,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 77302,
+      "stars": 77326,
       "latestVersion": "v0.82.0",
       "latestReleaseDate": "2026-07-24T06:12:16Z",
       "npmDownloads": 101
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56107,
+      "stars": 56111,
       "latestVersion": "1.15.6",
       "latestReleaseDate": "2026-07-24T20:30:33Z",
       "npmDownloads": null
