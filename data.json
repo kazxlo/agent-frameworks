@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28T07:28:36.131Z",
+  "lastUpdated": "2026-07-28T10:03:45.672Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139357,
+      "stars": 139376,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25850,
+      "stars": 25853,
       "latestVersion": "@ai-sdk/workflow-harness@1.0.46",
       "latestReleaseDate": "2026-07-28T03:32:43Z",
       "npmDownloads": 71756974
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20921,
+      "stars": 20919,
       "latestVersion": "v2.5.0",
       "latestReleaseDate": "2026-07-16T20:41:30Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28232,
+      "stars": 28238,
       "latestVersion": "v0.19.0",
       "latestReleaseDate": "2026-07-27T04:10:05Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12453,
+      "stars": 12459,
       "latestVersion": "python-github-copilot-1.0.0",
       "latestReleaseDate": "2026-07-23T21:32:23Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 28567,
+      "stars": 28569,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51153,
+      "stars": 51155,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142761,
+      "stars": 142779,
       "latestVersion": "langchain-core==1.5.1",
       "latestReleaseDate": "2026-07-23T20:13:35Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38301,
+      "stars": 38316,
       "latestVersion": "1.2.9",
       "latestReleaseDate": "2026-07-10T01:30:24Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18851,
+      "stars": 18857,
       "latestVersion": "v2.19.0",
       "latestReleaseDate": "2026-07-28T03:27:21Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 79296,
+      "stars": 79435,
       "latestVersion": "v0.82.1",
       "latestReleaseDate": "2026-07-25T12:47:23Z",
       "npmDownloads": 101
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56254,
+      "stars": 56263,
       "latestVersion": "1.15.7",
       "latestReleaseDate": "2026-07-26T18:20:02Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41464,
+      "stars": 41468,
       "latestVersion": "v2.8.5",
       "latestReleaseDate": "2026-07-27T08:52:32Z",
       "npmDownloads": null
