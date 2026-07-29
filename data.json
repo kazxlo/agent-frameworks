@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29T22:25:28.047Z",
+  "lastUpdated": "2026-07-29T23:27:36.706Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139548,
+      "stars": 139551,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 25890,
-      "latestVersion": "@ai-sdk/xai@3.0.113",
-      "latestReleaseDate": "2026-07-29T17:39:14Z",
+      "latestVersion": "@ai-sdk/minimax@2.0.0",
+      "latestReleaseDate": "2026-07-29T22:25:54Z",
       "npmDownloads": 73933482
     },
     {
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12488,
+      "stars": 12489,
       "latestVersion": "python-github-copilot-1.0.0",
       "latestReleaseDate": "2026-07-23T21:32:23Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51202,
+      "stars": 51203,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142902,
+      "stars": 142907,
       "latestVersion": "langchain-core==1.5.2",
       "latestReleaseDate": "2026-07-28T16:39:03Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38433,
+      "stars": 38434,
       "latestVersion": "1.2.10",
       "latestReleaseDate": "2026-07-28T18:34:14Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18880,
+      "stars": 18881,
       "latestVersion": "v2.20.0",
       "latestReleaseDate": "2026-07-29T03:26:46Z",
       "npmDownloads": null
@@ -477,9 +477,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 80306,
-      "latestVersion": "v0.82.1",
-      "latestReleaseDate": "2026-07-25T12:47:23Z",
+      "stars": 80320,
+      "latestVersion": "v0.83.0",
+      "latestReleaseDate": "2026-07-29T22:30:33Z",
       "npmDownloads": 105
     },
     {
