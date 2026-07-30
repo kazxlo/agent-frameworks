@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-30T09:08:11.238Z",
+  "lastUpdated": "2026-07-30T11:25:47.017Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139608,
+      "stars": 139619,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -77,10 +77,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25903,
+      "stars": 25907,
       "latestVersion": "@ai-sdk/minimax@2.0.0",
       "latestReleaseDate": "2026-07-29T22:25:54Z",
-      "npmDownloads": 73933482
+      "npmDownloads": 74746000
     },
     {
       "id": "google-adk",
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 20944,
+      "stars": 20946,
       "latestVersion": "v2.5.0",
       "latestReleaseDate": "2026-07-16T20:41:30Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28282,
+      "stars": 28287,
       "latestVersion": "v0.19.1",
       "latestReleaseDate": "2026-07-29T07:44:24Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12498,
+      "stars": 12502,
       "latestVersion": "python-github-copilot-1.0.0",
       "latestReleaseDate": "2026-07-23T21:32:23Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142976,
+      "stars": 142983,
       "latestVersion": "langchain-core==1.5.2",
       "latestReleaseDate": "2026-07-28T16:39:03Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38490,
+      "stars": 38495,
       "latestVersion": "1.2.10",
       "latestReleaseDate": "2026-07-28T18:34:14Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18892,
+      "stars": 18897,
       "latestVersion": "v2.21.0",
       "latestReleaseDate": "2026-07-30T01:59:06Z",
       "npmDownloads": null
@@ -477,10 +477,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 80674,
+      "stars": 80744,
       "latestVersion": "v0.83.0",
       "latestReleaseDate": "2026-07-29T22:30:33Z",
-      "npmDownloads": 105
+      "npmDownloads": 106
     },
     {
       "id": "crewai",
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56368,
+      "stars": 56374,
       "latestVersion": "1.15.9",
       "latestReleaseDate": "2026-07-30T05:45:26Z",
       "npmDownloads": null
