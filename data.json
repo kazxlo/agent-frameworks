@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-02T11:54:07.503Z",
+  "lastUpdated": "2026-08-02T12:49:01.062Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 139967,
+      "stars": 139972,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25954,
+      "stars": 25955,
       "latestVersion": "@ai-sdk/workflow-harness@1.0.54",
       "latestReleaseDate": "2026-08-01T22:27:22Z",
       "npmDownloads": 74827047
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51299,
+      "stars": 51301,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143216,
+      "stars": 143220,
       "latestVersion": "langchain-core==1.5.3",
       "latestReleaseDate": "2026-07-30T14:56:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38664,
+      "stars": 38665,
       "latestVersion": "checkpointsqlite==3.1.1",
       "latestReleaseDate": "2026-07-30T19:19:47Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 18980,
+      "stars": 18982,
       "latestVersion": "v2.22.0",
       "latestReleaseDate": "2026-08-01T02:27:46Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 82175,
+      "stars": 82190,
       "latestVersion": "v0.83.0",
       "latestReleaseDate": "2026-07-29T22:30:33Z",
       "npmDownloads": 99
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56498,
+      "stars": 56499,
       "latestVersion": "1.15.10",
       "latestReleaseDate": "2026-07-31T14:57:37Z",
       "npmDownloads": null
