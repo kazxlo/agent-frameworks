@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-03T11:51:09.591Z",
+  "lastUpdated": "2026-08-03T14:07:45.169Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 140083,
+      "stars": 140098,
       "latestVersion": "v2.1.220",
       "latestReleaseDate": "2026-07-25T01:35:55Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 25981,
+      "stars": 25985,
       "latestVersion": "@ai-sdk/fireworks@1.0.51",
       "latestReleaseDate": "2026-08-02T19:04:45Z",
       "npmDownloads": 74315542
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28353,
+      "stars": 28357,
       "latestVersion": "v0.19.2",
       "latestReleaseDate": "2026-08-01T01:08:37Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12567,
+      "stars": 12568,
       "latestVersion": "python-1.13.0",
       "latestReleaseDate": "2026-07-30T23:22:33Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 28648,
+      "stars": 28652,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51338,
+      "stars": 51339,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143305,
+      "stars": 143322,
       "latestVersion": "langchain-core==1.5.3",
       "latestReleaseDate": "2026-07-30T14:56:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38755,
+      "stars": 38762,
       "latestVersion": "checkpointsqlite==3.1.1",
       "latestReleaseDate": "2026-07-30T19:19:47Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19022,
+      "stars": 19026,
       "latestVersion": "v2.22.0",
       "latestReleaseDate": "2026-08-01T02:27:46Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 82768,
+      "stars": 82822,
       "latestVersion": "v0.83.0",
       "latestReleaseDate": "2026-07-29T22:30:33Z",
       "npmDownloads": 96
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56558,
+      "stars": 56567,
       "latestVersion": "1.15.10",
       "latestReleaseDate": "2026-07-31T14:57:37Z",
       "npmDownloads": null
