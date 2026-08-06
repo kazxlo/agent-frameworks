@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-05T23:26:08.814Z",
+  "lastUpdated": "2026-08-06T00:14:45.203Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 140376,
+      "stars": 140381,
       "latestVersion": "v2.1.222",
       "latestReleaseDate": "2026-08-04T22:39:55Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51405,
+      "stars": 51406,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 38981,
+      "stars": 38984,
       "latestVersion": "checkpointsqlite==3.1.1",
       "latestReleaseDate": "2026-07-30T19:19:47Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 84177,
+      "stars": 84185,
       "latestVersion": "v0.83.0",
       "latestReleaseDate": "2026-07-29T22:30:33Z",
       "npmDownloads": 98
