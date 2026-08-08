@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-08T11:49:30.116Z",
+  "lastUpdated": "2026-08-08T12:19:25.269Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51454,
+      "stars": 51455,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143689,
+      "stars": 143691,
       "latestVersion": "langchain-core==1.5.3",
       "latestReleaseDate": "2026-07-30T14:56:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 39192,
+      "stars": 39195,
       "latestVersion": "checkpointpostgres==3.1.2",
       "latestReleaseDate": "2026-08-07T20:40:16Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19140,
+      "stars": 19142,
       "latestVersion": "v2.27.0",
       "latestReleaseDate": "2026-08-08T03:51:40Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 85450,
+      "stars": 85461,
       "latestVersion": "v0.84.1",
       "latestReleaseDate": "2026-08-07T06:07:00Z",
       "npmDownloads": 96
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56779,
+      "stars": 56781,
       "latestVersion": "1.15.13",
       "latestReleaseDate": "2026-08-07T21:13:23Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41625,
+      "stars": 41627,
       "latestVersion": "v2.8.7",
       "latestReleaseDate": "2026-08-05T14:44:53Z",
       "npmDownloads": null
