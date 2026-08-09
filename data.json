@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-09T19:52:53.960Z",
+  "lastUpdated": "2026-08-09T20:16:19.689Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 39303,
+      "stars": 39304,
       "latestVersion": "checkpointpostgres==3.1.2",
       "latestReleaseDate": "2026-08-07T20:40:16Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 85969,
+      "stars": 85970,
       "latestVersion": "v0.84.1",
       "latestReleaseDate": "2026-08-07T06:07:00Z",
       "npmDownloads": 104
