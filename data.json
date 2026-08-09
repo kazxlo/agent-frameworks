@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-09T10:01:04.506Z",
+  "lastUpdated": "2026-08-09T10:57:56.021Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 140767,
+      "stars": 140773,
       "latestVersion": "v2.1.226",
       "latestReleaseDate": "2026-08-08T02:48:05Z",
       "npmDownloads": null
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 21047,
+      "stars": 21049,
       "latestVersion": "v2.6.3",
       "latestReleaseDate": "2026-08-07T21:15:28Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28501,
+      "stars": 28502,
       "latestVersion": "v0.19.4",
       "latestReleaseDate": "2026-08-05T02:58:35Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51484,
+      "stars": 51490,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143769,
+      "stars": 143777,
       "latestVersion": "langchain-core==1.5.3",
       "latestReleaseDate": "2026-07-30T14:56:10Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 39272,
+      "stars": 39278,
       "latestVersion": "checkpointpostgres==3.1.2",
       "latestReleaseDate": "2026-08-07T20:40:16Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19158,
+      "stars": 19159,
       "latestVersion": "v2.27.0",
       "latestReleaseDate": "2026-08-08T03:51:40Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 85784,
+      "stars": 85797,
       "latestVersion": "v0.84.1",
       "latestReleaseDate": "2026-08-07T06:07:00Z",
       "npmDownloads": 104
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 56832,
+      "stars": 56839,
       "latestVersion": "1.15.14",
       "latestReleaseDate": "2026-08-08T22:57:37Z",
       "npmDownloads": null
