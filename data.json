@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-14T19:24:13.876Z",
+  "lastUpdated": "2026-08-14T20:00:15.782Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 26192,
-      "latestVersion": "@ai-sdk/workflow-harness@1.0.72",
-      "latestReleaseDate": "2026-08-14T18:42:12Z",
+      "latestVersion": "@ai-sdk/xai@3.0.122",
+      "latestReleaseDate": "2026-08-14T19:56:53Z",
       "npmDownloads": 78325791
     },
     {
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 39691,
+      "stars": 39692,
       "latestVersion": "1.2.11",
       "latestReleaseDate": "2026-08-11T14:00:50Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 90384,
+      "stars": 90389,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 103
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57079,
+      "stars": 57080,
       "latestVersion": "1.15.16",
       "latestReleaseDate": "2026-08-14T00:08:07Z",
       "npmDownloads": null
