@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-16T09:14:06.537Z",
+  "lastUpdated": "2026-08-16T09:47:25.159Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141610,
+      "stars": 141613,
       "latestVersion": "v2.1.233",
       "latestReleaseDate": "2026-08-14T22:20:57Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26214,
+      "stars": 26215,
       "latestVersion": "@ai-sdk/xai@4.0.40",
       "latestReleaseDate": "2026-08-15T18:54:57Z",
       "npmDownloads": 81486840
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28667,
+      "stars": 28668,
       "latestVersion": "v0.21.0",
       "latestReleaseDate": "2026-08-15T02:49:37Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51670,
+      "stars": 51671,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144318,
+      "stars": 144319,
       "latestVersion": "langchain-core==1.5.5",
       "latestReleaseDate": "2026-08-14T18:56:41Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 39773,
+      "stars": 39776,
       "latestVersion": "1.2.11",
       "latestReleaseDate": "2026-08-11T14:00:50Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 91085,
+      "stars": 91105,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 101
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57142,
+      "stars": 57143,
       "latestVersion": "1.15.16",
       "latestReleaseDate": "2026-08-14T00:08:07Z",
       "npmDownloads": null
