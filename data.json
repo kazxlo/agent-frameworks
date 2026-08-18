@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18T11:46:13.667Z",
+  "lastUpdated": "2026-08-18T12:17:19.005Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28743,
+      "stars": 28744,
       "latestVersion": "v0.21.1",
       "latestReleaseDate": "2026-08-16T22:28:55Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 12865,
+      "stars": 12866,
       "latestVersion": "python-1.14.0",
       "latestReleaseDate": "2026-08-14T02:08:06Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 28854,
+      "stars": 28855,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51722,
+      "stars": 51723,
       "latestVersion": "v0.14.23",
       "latestReleaseDate": "2026-06-24T19:36:43Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19365,
+      "stars": 19367,
       "latestVersion": "v2.31.1",
       "latestReleaseDate": "2026-08-18T03:26:00Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 92853,
+      "stars": 92875,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 101
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57242,
+      "stars": 57244,
       "latestVersion": "1.15.16",
       "latestReleaseDate": "2026-08-14T00:08:07Z",
       "npmDownloads": null
