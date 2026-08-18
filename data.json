@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18T17:48:54.104Z",
+  "lastUpdated": "2026-08-18T18:17:03.690Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 141877,
+      "stars": 141879,
       "latestVersion": "v2.1.234",
       "latestReleaseDate": "2026-08-17T20:20:58Z",
       "npmDownloads": null
@@ -77,9 +77,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26273,
-      "latestVersion": "@ai-sdk/workflow-harness@1.0.74",
-      "latestReleaseDate": "2026-08-18T16:53:46Z",
+      "stars": 26274,
+      "latestVersion": "@ai-sdk/vue@2.0.239",
+      "latestReleaseDate": "2026-08-18T18:04:42Z",
       "npmDownloads": 81486840
     },
     {
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 28866,
+      "stars": 28865,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144487,
+      "stars": 144489,
       "latestVersion": "langchain-core==1.5.6",
       "latestReleaseDate": "2026-08-17T21:26:47Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 93052,
+      "stars": 93064,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 101
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57263,
+      "stars": 57264,
       "latestVersion": "1.15.16",
       "latestReleaseDate": "2026-08-14T00:08:07Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41766,
+      "stars": 41767,
       "latestVersion": "v2.9.0",
       "latestReleaseDate": "2026-08-13T12:08:15Z",
       "npmDownloads": null
