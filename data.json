@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-20T17:20:02.639Z",
+  "lastUpdated": "2026-08-20T17:51:44.771Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142116,
+      "stars": 142117,
       "latestVersion": "v2.1.237",
       "latestReleaseDate": "2026-08-20T00:54:41Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 13004,
+      "stars": 13005,
       "latestVersion": "dotnet-1.18.0",
       "latestReleaseDate": "2026-08-18T14:30:58Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40108,
+      "stars": 40109,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19416,
+      "stars": 19417,
       "latestVersion": "v2.32.1",
       "latestReleaseDate": "2026-08-20T02:11:05Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 94332,
+      "stars": 94341,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 127
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57391,
+      "stars": 57393,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
