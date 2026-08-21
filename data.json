@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-21T20:44:58.808Z",
+  "lastUpdated": "2026-08-21T21:11:35.073Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 26338,
-      "latestVersion": "@ai-sdk/vue@3.0.263",
-      "latestReleaseDate": "2026-08-21T17:53:49Z",
+      "latestVersion": "@ai-sdk/workflow-harness@1.0.84",
+      "latestReleaseDate": "2026-08-21T20:57:29Z",
       "npmDownloads": 85816308
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 21218,
+      "stars": 21219,
       "latestVersion": "v2.7.1",
       "latestReleaseDate": "2026-08-17T18:28:14Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28836,
+      "stars": 28837,
       "latestVersion": "v0.22.0",
       "latestReleaseDate": "2026-08-19T13:44:38Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144731,
+      "stars": 144732,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40190,
+      "stars": 40192,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19433,
+      "stars": 19434,
       "latestVersion": "v2.33.0",
       "latestReleaseDate": "2026-08-21T04:53:40Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 95012,
+      "stars": 95013,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 127
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57433,
+      "stars": 57434,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
