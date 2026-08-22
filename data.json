@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-22T02:44:49.004Z",
+  "lastUpdated": "2026-08-22T03:30:51.361Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142307,
+      "stars": 142316,
       "latestVersion": "v2.1.239",
       "latestReleaseDate": "2026-08-21T19:54:23Z",
       "npmDownloads": null
@@ -80,7 +80,7 @@
       "stars": 26341,
       "latestVersion": "@ai-sdk/workflow-harness@1.0.84",
       "latestReleaseDate": "2026-08-21T20:57:29Z",
-      "npmDownloads": 85816308
+      "npmDownloads": 86351146
     },
     {
       "id": "google-adk",
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28841,
+      "stars": 28842,
       "latestVersion": "v0.22.0",
       "latestReleaseDate": "2026-08-19T13:44:38Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 13029,
+      "stars": 13030,
       "latestVersion": "python-1.15.0",
       "latestReleaseDate": "2026-08-21T23:08:41Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40203,
+      "stars": 40204,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 95087,
+      "stars": 95102,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 127
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57441,
+      "stars": 57440,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
