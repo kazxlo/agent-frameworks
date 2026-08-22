@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-22T05:48:34.372Z",
+  "lastUpdated": "2026-08-22T06:16:44.828Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142328,
+      "stars": 142331,
       "latestVersion": "v2.1.239",
       "latestReleaseDate": "2026-08-21T19:54:23Z",
       "npmDownloads": null
@@ -77,9 +77,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26341,
-      "latestVersion": "@ai-sdk/workflow-harness@1.0.84",
-      "latestReleaseDate": "2026-08-21T20:57:29Z",
+      "stars": 26342,
+      "latestVersion": "@ai-sdk/xai@4.0.43",
+      "latestReleaseDate": "2026-08-22T06:01:12Z",
       "npmDownloads": 86351146
     },
     {
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28844,
+      "stars": 28848,
       "latestVersion": "v0.22.0",
       "latestReleaseDate": "2026-08-19T13:44:38Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144743,
+      "stars": 144745,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 95136,
+      "stars": 95143,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 131
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57446,
+      "stars": 57447,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
