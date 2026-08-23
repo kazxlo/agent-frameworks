@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23T05:22:12.101Z",
+  "lastUpdated": "2026-08-23T05:51:11.816Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142606,
+      "stars": 142613,
       "latestVersion": "v2.1.241",
       "latestReleaseDate": "2026-08-23T00:52:16Z",
       "npmDownloads": null
@@ -80,7 +80,7 @@
       "stars": 26363,
       "latestVersion": "@ai-sdk/deepgram@3.1.0",
       "latestReleaseDate": "2026-08-23T01:45:50Z",
-      "npmDownloads": 86551852
+      "npmDownloads": 85185241
     },
     {
       "id": "google-adk",
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51806,
+      "stars": 51807,
       "latestVersion": "v0.14.24",
       "latestReleaseDate": "2026-08-19T18:48:01Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144802,
+      "stars": 144806,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -477,10 +477,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 95579,
+      "stars": 95586,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
-      "npmDownloads": 129
+      "npmDownloads": 118
     },
     {
       "id": "crewai",
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57484,
+      "stars": 57486,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
