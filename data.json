@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23T00:29:27.695Z",
+  "lastUpdated": "2026-08-23T02:08:42.354Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,9 +37,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142533,
-      "latestVersion": "v2.1.240",
-      "latestReleaseDate": "2026-08-22T14:45:30Z",
+      "stars": 142558,
+      "latestVersion": "v2.1.241",
+      "latestReleaseDate": "2026-08-23T00:52:16Z",
       "npmDownloads": null
     },
     {
@@ -78,8 +78,8 @@
         "visual_tools": true
       },
       "stars": 26358,
-      "latestVersion": "@ai-sdk/xai@4.0.43",
-      "latestReleaseDate": "2026-08-22T06:01:12Z",
+      "latestVersion": "@ai-sdk/deepgram@3.1.0",
+      "latestReleaseDate": "2026-08-23T01:45:50Z",
       "npmDownloads": 86551852
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 21226,
+      "stars": 21227,
       "latestVersion": "v2.7.1",
       "latestReleaseDate": "2026-08-17T18:28:14Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 28869,
+      "stars": 28872,
       "latestVersion": "v0.22.0",
       "latestReleaseDate": "2026-08-19T13:44:38Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51802,
+      "stars": 51803,
       "latestVersion": "v0.14.24",
       "latestReleaseDate": "2026-08-19T18:48:01Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144788,
+      "stars": 144793,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40253,
+      "stars": 40257,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 95511,
+      "stars": 95534,
       "latestVersion": "v0.84.2",
       "latestReleaseDate": "2026-08-14T10:14:32Z",
       "npmDownloads": 129
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57481,
+      "stars": 57483,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
