@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-25T10:55:58.194Z",
+  "lastUpdated": "2026-08-25T11:15:55.364Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 142932,
+      "stars": 142937,
       "latestVersion": "v2.1.245",
       "latestReleaseDate": "2026-08-25T05:13:24Z",
       "npmDownloads": null
@@ -80,7 +80,7 @@
       "stars": 26403,
       "latestVersion": "@ai-sdk/xai@4.0.44",
       "latestReleaseDate": "2026-08-25T03:21:52Z",
-      "npmDownloads": 84062842
+      "npmDownloads": 86429654
     },
     {
       "id": "google-adk",
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144952,
+      "stars": 144953,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40417,
+      "stars": 40418,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -477,10 +477,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 96983,
+      "stars": 96989,
       "latestVersion": "v0.84.3",
       "latestReleaseDate": "2026-08-24T11:09:57Z",
-      "npmDownloads": 119
+      "npmDownloads": 116
     },
     {
       "id": "crewai",
