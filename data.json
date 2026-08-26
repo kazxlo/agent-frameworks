@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-26T10:56:16.143Z",
+  "lastUpdated": "2026-08-26T11:18:58.010Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143054,
+      "stars": 143053,
       "latestVersion": "v2.1.246",
       "latestReleaseDate": "2026-08-25T22:31:52Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 13122,
+      "stars": 13123,
       "latestVersion": "dotnet-1.19.0",
       "latestReleaseDate": "2026-08-22T12:48:00Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 51878,
+      "stars": 51877,
       "latestVersion": "v0.14.24",
       "latestReleaseDate": "2026-08-19T18:48:01Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 145031,
+      "stars": 145033,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40479,
+      "stars": 40480,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19505,
+      "stars": 19506,
       "latestVersion": "v2.35.0",
       "latestReleaseDate": "2026-08-26T01:31:01Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 97561,
+      "stars": 97570,
       "latestVersion": "v0.84.3",
       "latestReleaseDate": "2026-08-24T11:09:57Z",
       "npmDownloads": 116
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41932,
+      "stars": 41933,
       "latestVersion": "v3.0.1",
       "latestReleaseDate": "2026-08-26T10:19:39Z",
       "npmDownloads": null
