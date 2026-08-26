@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-26T11:52:01.921Z",
+  "lastUpdated": "2026-08-26T12:21:35.396Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 143054,
+      "stars": 143056,
       "latestVersion": "v2.1.246",
       "latestReleaseDate": "2026-08-25T22:31:52Z",
       "npmDownloads": null
@@ -77,10 +77,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26422,
+      "stars": 26423,
       "latestVersion": "@ai-sdk/xai@4.0.44",
       "latestReleaseDate": "2026-08-25T03:21:52Z",
-      "npmDownloads": 86429654
+      "npmDownloads": 89099013
     },
     {
       "id": "google-adk",
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 21292,
+      "stars": 21293,
       "latestVersion": "v2.7.1",
       "latestReleaseDate": "2026-08-17T18:28:14Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 145036,
+      "stars": 145041,
       "latestVersion": "langchain-core==1.6.0",
       "latestReleaseDate": "2026-08-19T15:55:57Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 40480,
+      "stars": 40482,
       "latestVersion": "sdk==0.4.3",
       "latestReleaseDate": "2026-08-19T18:05:32Z",
       "npmDownloads": null
@@ -477,10 +477,10 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 97582,
+      "stars": 97590,
       "latestVersion": "v0.84.3",
       "latestReleaseDate": "2026-08-24T11:09:57Z",
-      "npmDownloads": 116
+      "npmDownloads": 119
     },
     {
       "id": "crewai",
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 57628,
+      "stars": 57630,
       "latestVersion": "1.15.17",
       "latestReleaseDate": "2026-08-20T00:27:23Z",
       "npmDownloads": null
