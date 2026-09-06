@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-06T06:05:46.318Z",
+  "lastUpdated": "2026-09-06T11:07:57.605Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 144197,
+      "stars": 144221,
       "latestVersion": "v2.1.263",
       "latestReleaseDate": "2026-09-06T02:54:20Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26596,
+      "stars": 26603,
       "latestVersion": "@ai-sdk/openai@4.0.60",
       "latestReleaseDate": "2026-09-05T18:26:03Z",
       "npmDownloads": 89385860
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 21422,
+      "stars": 21423,
       "latestVersion": "v2.8.0",
       "latestReleaseDate": "2026-08-26T23:25:15Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 29214,
+      "stars": 29218,
       "latestVersion": "v0.22.0",
       "latestReleaseDate": "2026-08-19T13:44:38Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 13349,
+      "stars": 13352,
       "latestVersion": "python-1.17.0",
       "latestReleaseDate": "2026-09-03T09:49:35Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 29178,
+      "stars": 29187,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 52032,
+      "stars": 52035,
       "latestVersion": "v0.14.24",
       "latestReleaseDate": "2026-08-19T18:48:01Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 145738,
+      "stars": 145753,
       "latestVersion": "langchain-core==1.6.2",
       "latestReleaseDate": "2026-09-04T21:29:42Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 41109,
+      "stars": 41121,
       "latestVersion": "sdk==0.4.4",
       "latestReleaseDate": "2026-08-27T21:25:36Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 19742,
+      "stars": 19746,
       "latestVersion": "v2.40.0",
       "latestReleaseDate": "2026-09-05T00:09:37Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 102184,
+      "stars": 102258,
       "latestVersion": "v0.85.1",
       "latestReleaseDate": "2026-09-05T12:29:01Z",
       "npmDownloads": 124
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 58134,
+      "stars": 58144,
       "latestVersion": "1.15.20",
       "latestReleaseDate": "2026-09-04T12:42:21Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 42067,
+      "stars": 42068,
       "latestVersion": "v3.0.6",
       "latestReleaseDate": "2026-09-04T13:06:49Z",
       "npmDownloads": null
