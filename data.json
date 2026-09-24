@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T22:22:50.738Z",
+  "lastUpdated": "2026-09-24T00:36:48.188Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 147800,
+      "stars": 147808,
       "latestVersion": "v2.1.281",
       "latestReleaseDate": "2026-09-23T19:19:15Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 26918,
+      "stars": 26922,
       "latestVersion": "@ai-sdk/zai@1.0.5",
       "latestReleaseDate": "2026-09-23T22:00:50Z",
       "npmDownloads": 87791075
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 29461,
+      "stars": 29462,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 146941,
+      "stars": 146942,
       "latestVersion": "langchain-core==1.6.4",
       "latestReleaseDate": "2026-09-21T15:51:23Z",
       "npmDownloads": null
@@ -399,9 +399,9 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 42194,
-      "latestVersion": "cli==0.4.32",
-      "latestReleaseDate": "2026-09-23T18:02:46Z",
+      "stars": 42195,
+      "latestVersion": "cli==0.4.32.dev0",
+      "latestReleaseDate": "2026-09-23T23:26:51Z",
       "npmDownloads": null
     },
     {
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 108904,
+      "stars": 108916,
       "latestVersion": "v0.87.1",
       "latestReleaseDate": "2026-09-22T19:43:43Z",
       "npmDownloads": 137
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 58955,
+      "stars": 58958,
       "latestVersion": "1.15.22",
       "latestReleaseDate": "2026-09-16T22:09:58Z",
       "npmDownloads": null
