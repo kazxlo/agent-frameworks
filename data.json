@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03T17:39:29.436Z",
+  "lastUpdated": "2026-10-03T20:15:22.958Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 149131,
+      "stars": 149167,
       "latestVersion": "v2.1.288",
       "latestReleaseDate": "2026-10-02T20:19:57Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27103,
+      "stars": 27105,
       "latestVersion": "@ai-sdk/harness-github-copilot@1.0.34",
       "latestReleaseDate": "2026-10-01T19:43:59Z",
       "npmDownloads": 107952071
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 29825,
+      "stars": 29824,
       "latestVersion": "v0.23.1",
       "latestReleaseDate": "2026-10-02T15:19:29Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 29663,
+      "stars": 29665,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 147408,
+      "stars": 147410,
       "latestVersion": "langchain-core==1.6.6",
       "latestReleaseDate": "2026-09-29T14:53:11Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 42672,
+      "stars": 42674,
       "latestVersion": "cli==0.4.32.dev0",
       "latestReleaseDate": "2026-09-23T23:26:51Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 20385,
+      "stars": 20388,
       "latestVersion": "v2.54.0",
       "latestReleaseDate": "2026-10-03T03:21:28Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 112056,
+      "stars": 112096,
       "latestVersion": "v1.0.1",
       "latestReleaseDate": "2026-10-03T16:14:00Z",
       "npmDownloads": 99
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 59319,
+      "stars": 59321,
       "latestVersion": "1.15.23",
       "latestReleaseDate": "2026-09-28T21:14:32Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 42531,
+      "stars": 42533,
       "latestVersion": "v3.1.1",
       "latestReleaseDate": "2026-10-02T12:38:20Z",
       "npmDownloads": null
