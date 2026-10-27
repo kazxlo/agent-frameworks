@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-27T19:42:31.882Z",
+  "lastUpdated": "2026-10-27T23:16:13.614Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,9 +37,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 153584,
-      "latestVersion": "v2.1.311",
-      "latestReleaseDate": "2026-10-26T21:51:23Z",
+      "stars": 153601,
+      "latestVersion": "v2.1.312",
+      "latestReleaseDate": "2026-10-27T20:24:20Z",
       "npmDownloads": null
     },
     {
@@ -77,9 +77,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27545,
-      "latestVersion": "@ai-sdk/zai@3.0.42",
-      "latestReleaseDate": "2026-10-27T19:37:32Z",
+      "stars": 27547,
+      "latestVersion": "@ai-sdk/xai@3.0.146",
+      "latestReleaseDate": "2026-10-27T23:12:56Z",
       "npmDownloads": 113706031
     },
     {
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 22023,
+      "stars": 22025,
       "latestVersion": "v2.13.0",
       "latestReleaseDate": "2026-10-23T18:08:23Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 30335,
+      "stars": 30336,
       "latestVersion": "v0.24.0",
       "latestReleaseDate": "2026-10-15T02:20:12Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 14342,
+      "stars": 14343,
       "latestVersion": "dotnet-1.26.0",
       "latestReleaseDate": "2026-10-23T14:32:13Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 30099,
+      "stars": 30102,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 52693,
+      "stars": 52695,
       "latestVersion": "v0.14.25",
       "latestReleaseDate": "2026-09-21T16:22:27Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 148557,
+      "stars": 148567,
       "latestVersion": "langchain-core==1.7.0",
       "latestReleaseDate": "2026-10-22T17:47:38Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 43995,
+      "stars": 44005,
       "latestVersion": "1.2.18",
       "latestReleaseDate": "2026-10-26T20:04:45Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 20905,
+      "stars": 20907,
       "latestVersion": "v2.62.0",
       "latestReleaseDate": "2026-10-27T02:38:43Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 118265,
+      "stars": 118283,
       "latestVersion": "v1.4.0",
       "latestReleaseDate": "2026-10-21T22:49:48Z",
       "npmDownloads": 71
@@ -516,9 +516,9 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 60176,
-      "latestVersion": "1.15.30",
-      "latestReleaseDate": "2026-10-24T01:56:04Z",
+      "stars": 60182,
+      "latestVersion": "1.15.32",
+      "latestReleaseDate": "2026-10-27T23:04:05Z",
       "npmDownloads": null
     },
     {
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 42920,
+      "stars": 42922,
       "latestVersion": "v3.1.11",
       "latestReleaseDate": "2026-10-27T19:28:44Z",
       "npmDownloads": null
