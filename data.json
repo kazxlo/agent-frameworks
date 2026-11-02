@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T23:58:55.584Z",
+  "lastUpdated": "2026-11-02T04:15:38.501Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 154169,
+      "stars": 154192,
       "latestVersion": "v2.1.316",
       "latestReleaseDate": "2026-10-31T01:01:35Z",
       "npmDownloads": null
@@ -77,7 +77,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 27680,
+      "stars": 27683,
       "latestVersion": "@ai-sdk/xai@5.0.35",
       "latestReleaseDate": "2026-10-30T22:19:56Z",
       "npmDownloads": 121193154
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 22074,
+      "stars": 22079,
       "latestVersion": "v2.13.0",
       "latestReleaseDate": "2026-10-23T18:08:23Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 30440,
+      "stars": 30446,
       "latestVersion": "v0.24.0",
       "latestReleaseDate": "2026-10-15T02:20:12Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 14482,
+      "stars": 14486,
       "latestVersion": "python-1.24.0",
       "latestReleaseDate": "2026-10-30T21:52:13Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 30177,
+      "stars": 30179,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -317,7 +317,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 52772,
+      "stars": 52776,
       "latestVersion": "v0.14.25",
       "latestReleaseDate": "2026-09-21T16:22:27Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 148839,
+      "stars": 148850,
       "latestVersion": "langchain-core==1.7.3",
       "latestReleaseDate": "2026-10-29T20:56:12Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 44286,
+      "stars": 44302,
       "latestVersion": "1.2.19",
       "latestReleaseDate": "2026-10-30T22:23:43Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 20984,
+      "stars": 20990,
       "latestVersion": "v2.64.0",
       "latestReleaseDate": "2026-10-30T23:27:24Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 119349,
+      "stars": 119389,
       "latestVersion": "v1.4.0",
       "latestReleaseDate": "2026-10-21T22:49:48Z",
       "npmDownloads": 72
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 60394,
+      "stars": 60395,
       "latestVersion": "1.15.34",
       "latestReleaseDate": "2026-11-01T21:21:56Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 43009,
+      "stars": 43011,
       "latestVersion": "v3.1.12",
       "latestReleaseDate": "2026-10-29T14:00:55Z",
       "npmDownloads": null
