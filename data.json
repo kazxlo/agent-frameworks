@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-10T23:47:13.075Z",
+  "lastUpdated": "2026-11-11T03:18:01.677Z",
   "frameworks": [
     {
       "id": "claude-agent-sdk",
@@ -37,7 +37,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 155207,
+      "stars": 155217,
       "latestVersion": "v2.1.322",
       "latestReleaseDate": "2026-11-10T02:29:43Z",
       "npmDownloads": null
@@ -118,7 +118,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 22178,
+      "stars": 22177,
       "latestVersion": "v2.14.0",
       "latestReleaseDate": "2026-11-07T00:58:18Z",
       "npmDownloads": null
@@ -197,7 +197,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 30601,
+      "stars": 30602,
       "latestVersion": "v0.24.0",
       "latestReleaseDate": "2026-10-15T02:20:12Z",
       "npmDownloads": null
@@ -237,7 +237,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 14623,
+      "stars": 14625,
       "latestVersion": "python-1.25.0",
       "latestReleaseDate": "2026-11-07T15:52:42Z",
       "npmDownloads": null
@@ -276,7 +276,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 30304,
+      "stars": 30305,
       "latestVersion": "v1.26.0",
       "latestReleaseDate": "2026-05-29T05:09:47Z",
       "npmDownloads": null
@@ -358,7 +358,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 149326,
+      "stars": 149333,
       "latestVersion": "langchain-core==1.7.7",
       "latestReleaseDate": "2026-11-10T04:08:27Z",
       "npmDownloads": null
@@ -399,7 +399,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 44764,
+      "stars": 44770,
       "latestVersion": "sdk==0.4.14",
       "latestReleaseDate": "2026-11-06T03:03:34Z",
       "npmDownloads": null
@@ -438,7 +438,7 @@
         "persistence": false,
         "visual_tools": false
       },
-      "stars": 21127,
+      "stars": 21131,
       "latestVersion": "v2.67.0",
       "latestReleaseDate": "2026-11-10T23:11:23Z",
       "npmDownloads": null
@@ -477,7 +477,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 121251,
+      "stars": 121277,
       "latestVersion": "v1.5.2",
       "latestReleaseDate": "2026-11-10T12:25:43Z",
       "npmDownloads": 72
@@ -516,7 +516,7 @@
         "persistence": "partial",
         "visual_tools": true
       },
-      "stars": 60742,
+      "stars": 60746,
       "latestVersion": "1.15.39",
       "latestReleaseDate": "2026-11-09T01:07:14Z",
       "npmDownloads": null
@@ -555,7 +555,7 @@
         "persistence": true,
         "visual_tools": true
       },
-      "stars": 43138,
+      "stars": 43140,
       "latestVersion": "v3.1.12",
       "latestReleaseDate": "2026-10-29T14:00:55Z",
       "npmDownloads": null
